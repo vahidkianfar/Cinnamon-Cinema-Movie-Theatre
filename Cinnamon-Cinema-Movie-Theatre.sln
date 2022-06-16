@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinnamon-Cinema-Movie-Theatre", "Cinnamon-Cinema-Movie-Theatre\Cinnamon-Cinema-Movie-Theatre.csproj", "{958710D1-1629-43B3-BE7F-B492C5335B63}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinnamonTest", "CinnamonTest\CinnamonTest.csproj", "{315FAF96-4F7E-45CB-9879-E8B505E724E5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{958710D1-1629-43B3-BE7F-B492C5335B63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{958710D1-1629-43B3-BE7F-B492C5335B63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{958710D1-1629-43B3-BE7F-B492C5335B63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{958710D1-1629-43B3-BE7F-B492C5335B63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{315FAF96-4F7E-45CB-9879-E8B505E724E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{315FAF96-4F7E-45CB-9879-E8B505E724E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{315FAF96-4F7E-45CB-9879-E8B505E724E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{315FAF96-4F7E-45CB-9879-E8B505E724E5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
