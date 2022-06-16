@@ -18,7 +18,6 @@ public class Movies:IDatabase
             "SELECT title FROM movies",
             connectionToDatabase
         );
-
         await using (var reader = await command.ExecuteReaderAsync())
         {
             var title = new List<string>();

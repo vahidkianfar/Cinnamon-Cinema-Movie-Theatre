@@ -40,7 +40,6 @@ public class DrawSeatsTable
             }
         
             var counter = 0;
-        
             // while(counter<15)
             // {
             //     table.UpdateCell(counter, 0, "X");

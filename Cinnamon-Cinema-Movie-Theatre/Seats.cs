@@ -4,7 +4,6 @@ namespace Cinnamon_Cinema_Movie_Theatre;
 
 public class Seats:IDatabase
 {
-    
     public List<Tuple<string, int>> seatsStatus { get; private set; }
     public static async Task GetAvailableSeats(Seats seatDetails)
     {

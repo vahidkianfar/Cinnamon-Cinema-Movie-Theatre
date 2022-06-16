@@ -35,5 +35,4 @@ foreach(var status in seatDetails.seatsStatus)
     Console.WriteLine(status);
     
 var drawTable= new DrawSeatsTable();
-                
 await drawTable.LiveTable();
