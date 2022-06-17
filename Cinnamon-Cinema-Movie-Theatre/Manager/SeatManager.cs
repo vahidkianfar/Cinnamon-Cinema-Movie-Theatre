@@ -5,10 +5,10 @@ namespace Cinnamon_Cinema_Movie_Theatre.Manager;
 public class SeatManager:IDatabase
 {
     
-    public List<Tuple<string, int,int>> SeatsStatus { get; private set; }
-    public static NpgsqlConnection Connection { get; private set; }
+    public static List<Tuple<string, int,int>> SeatsStatus { get; set; }
+    public static NpgsqlConnection? _connection { get; set; }
     
-    public SeatManager(NpgsqlConnection connection)=>Connection = connection;
+    public SeatManager(NpgsqlConnection? connection)=>_connection = connection;
 
     // private static async Task<NpgsqlConnection> GetConnection()
     // {
@@ -18,44 +18,36 @@ public class SeatManager:IDatabase
     // }
     
     
-    // private static async Task Connection()
+    // private static async Task _connection()
     // {
     //     await using var connectionToDatabase = new NpgsqlConnection(IDatabase.ConnectionInitializer);
     //     await connectionToDatabase.OpenAsync();
     // }
-    public static async Task GetAvailableSeats(SeatManager seatManagerDetails)
+    public static void GetAvailableSeats()
     {
-        await using var connectionToDatabase = new NpgsqlConnection(IDatabase.ConnectionInitializer);
-        await connectionToDatabase.OpenAsync();
-        await using var command = new NpgsqlCommand(
+         using var command = new NpgsqlCommand(
             "SELECT rowblock, columnnumber, status FROM seats ORDER BY rowblock, columnnumber",
-             Connection);
-        
-        {
-            await using var reader = await command.ExecuteReaderAsync();
+             _connection);
+         {
+            using var reader =  command.ExecuteReader();
             var result = new List<Tuple<string,int,int>>();
-            while (await reader.ReadAsync())
+            while ( reader.Read())
                 result.Add(new Tuple<string, int,int>
                     (reader.GetString(0), reader.GetInt32( 1), reader.GetInt32(2)));
-            seatManagerDetails.SeatsStatus = result;
-        }
+            SeatsStatus = result;
+         }
     }
 
-    public static async Task UpdateSeatStatus(char selectedRow, int selectedCols,int newStatus)
+    public static void UpdateSeatStatus(char selectedRow, int selectedCols,int newStatus)
     {
-        
-        await using var connectionToDatabase = new NpgsqlConnection(IDatabase.ConnectionInitializer);
-        await connectionToDatabase.OpenAsync();
-        // var commandText = @"UPDATE seats
-        //         SET status = @status WHERE rowblock=@rows AND columnnumber=@cols";
-
-        await using (var command = new NpgsqlCommand($"UPDATE seats SET status = '{newStatus}' " +
-                                                     $"WHERE rowblock='{selectedRow}' AND columnnumber='{selectedCols}' ",  Connection))
+        using var command = new NpgsqlCommand(
+             $"UPDATE seats SET status = '{newStatus}' " +
+             $"WHERE rowblock='{selectedRow}' AND columnnumber='{selectedCols}' ",  _connection);
         {
             command.Parameters.AddWithValue(@"status", newStatus);
             command.Parameters.AddWithValue(@"rowblock", selectedRow);
             command.Parameters.AddWithValue(@"columnnumber", selectedCols);
-            await command.ExecuteNonQueryAsync();
+            command.ExecuteNonQuery();
         }
     }
 }

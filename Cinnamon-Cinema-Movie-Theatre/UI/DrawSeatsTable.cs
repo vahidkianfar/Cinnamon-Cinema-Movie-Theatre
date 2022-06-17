@@ -38,8 +38,7 @@ public class DrawSeatsTable
                 ctx.Refresh();
                 await Task.Delay(delayTable);
             }
-        
-            var counter = 0;
+            
             foreach (var (row, column, status) in seats)
             {
                 if (status == 0) continue;

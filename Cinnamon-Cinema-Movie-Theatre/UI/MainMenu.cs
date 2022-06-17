@@ -5,30 +5,20 @@ namespace Cinnamon_Cinema_Movie_Theatre.UI;
 
 public class MainMenu
 {
-    public async Task Start()
+    public static void Start()
     {
-        var selectInstructionOption = ConsoleHelper.MultipleChoice(true, "1. See the Available Seats",
-            "2. ---", "3. Exit");
-
+        Console.Clear();
+        var selectInstructionOption = ConsoleHelper.MultipleChoice(true, "1. See Available Movies",
+            "2. Exit");
         switch (selectInstructionOption)
         {
             case 0:
             {
-                await using var connectionToDatabase = new NpgsqlConnection(IDatabase.ConnectionInitializer);
-                await connectionToDatabase.OpenAsync();
-                var seatDetails = new SeatManager(connectionToDatabase);
-                await SeatManager.GetAvailableSeats(seatDetails);
-                var drawTable = new DrawSeatsTable();
-                await drawTable.LiveTable(seatDetails.SeatsStatus);
-
-                var subMenu = new SubMenu();
-                await subMenu.Start();
+                SubMenu.ShowMoviesMenu();
                 break;
             }
+            
             case 1:
-                Console.WriteLine("2. ---");
-                break;
-            case 2:
                 Environment.Exit(0);
                 break;
         }

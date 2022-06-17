@@ -10,4 +10,5 @@ const string ConnectionInitializer = "Host=localhost;" +
                                      "Password=johnybravo;" +
                                      "Database=CinnamonCinemas";
 
+
 }

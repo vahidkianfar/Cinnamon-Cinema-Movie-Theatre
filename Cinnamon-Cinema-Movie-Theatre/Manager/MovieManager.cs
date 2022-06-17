@@ -2,33 +2,23 @@
 
 namespace Cinnamon_Cinema_Movie_Theatre.Manager;
 
-public class Movies:IDatabase
+public class MovieManager:IDatabase
 {
-    public List<string> Title { get; private set; }
+    public static List<Tuple<string,string,string>>? MovieDetails { get; private set; }
     public string Genre { get; set; }
     public string Director { get; set; }
-
-    public async Task<NpgsqlConnection> GetConnection()
+    public static NpgsqlConnection? _connection { get; set; }
+    public MovieManager(NpgsqlConnection? connection)=>_connection = connection;
+    public static void GetMovieDetails()
     {
-        await using var connectionToDatabase = new NpgsqlConnection(IDatabase.ConnectionInitializer);
-        await connectionToDatabase.OpenAsync();
-        return connectionToDatabase;
-    }
-    public static async Task GetMovieTitle(Movies movie)
-    {
-        await using var connectionToDatabase = new NpgsqlConnection(IDatabase.ConnectionInitializer);
-        await connectionToDatabase.OpenAsync();
-        
-        await using var command = new NpgsqlCommand(
-            "SELECT title FROM movies",
-            connectionToDatabase
-        );
-        await using (var reader = await command.ExecuteReaderAsync())
-        {
-            var title = new List<string>();
-            while (await reader.ReadAsync())
-                title.Add(reader.GetString(0));
-            movie.Title = title;
-        }
+          var command = new NpgsqlCommand("SELECT genre, title, director FROM movies", _connection);
+          {
+              using var reader = command.ExecuteReader();
+              var title = new List<Tuple<string, string, string>>();
+              while (reader.Read())
+                  title.Add(new Tuple<string, string, string>(reader.GetString(0), reader.GetString(1),
+                      reader.GetString(2)));
+              MovieDetails = title;
+          }
     }
 }

@@ -1,0 +1,37 @@
+﻿@startuml
+
+interface IDatabase
+
+
+class SeatManager
+{
+ + GetAvailableSeats()
+ - UpdateSeatStatus()
+}
+class MovieManager
+{
+ + GetMoviesDetails()
+ - UpdateMovies()
+}
+class UserManager
+{
++ GetLoginDetails()
++ Registration()
++ UpdateUserDetails()
+}
+
+class BookingManager()
+{
++ PlaceOrder()
++ UpdateMovies()
++ UpdateSeatStatus()
+}
+
+class ConsoleHelper
+class DrawSeatsTable
+
+class MainMenu
+class SubMenu
+
+
+@enduml

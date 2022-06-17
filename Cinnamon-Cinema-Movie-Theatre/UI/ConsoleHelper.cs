@@ -21,11 +21,13 @@ public class ConsoleHelper
 
         do 
         {
-            // var seatDetails = new SeatManager(connectionToDatabase);
-            //  SeatManager.GetAvailableSeats(seatDetails);
-            // var drawTable= new DrawSeatsTable();
-            //  drawTable.LiveTable(seatDetails.SeatsStatus);
-            // Console.ResetColor();
+            connectionToDatabase.Open();
+            SeatManager._connection = connectionToDatabase;
+            SeatManager.GetAvailableSeats();
+            var drawTable = new DrawSeatsTable();
+            drawTable.LiveTable(SeatManager.SeatsStatus);
+            connectionToDatabase.Close();
+            Console.ResetColor();
             for (var optionCounter = 0; optionCounter < options.Length; optionCounter++)
             {
                 Console.SetCursorPosition(startX + (optionCounter % optionsPerLine) * spacingPerLine, startY + optionCounter / optionsPerLine);
