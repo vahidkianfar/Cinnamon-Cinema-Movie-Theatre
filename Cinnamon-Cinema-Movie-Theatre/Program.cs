@@ -28,11 +28,13 @@ await Movies.GetMovieTitle(movieDetails);
 foreach (var title in movieDetails.Title)
     Console.WriteLine(title);
 
-var seatDetails = new Seats();
-await Seats.GetAvailableSeats(seatDetails);
+var seatDetails = new SeatManager();
+await SeatManager.GetAvailableSeats(seatDetails);
 
 foreach(var status in seatDetails.seatsStatus)
-    Console.WriteLine(status);
+    Console.WriteLine(status.Item1 + " " + status.Item2);
     
-var drawTable= new DrawSeatsTable();
-await drawTable.LiveTable();
+// var drawTable= new DrawSeatsTable();
+// await drawTable.LiveTable(seatDetails.seatsStatus);
+
+await SeatManager.UpdateSeatStatus('A', 1, 1);

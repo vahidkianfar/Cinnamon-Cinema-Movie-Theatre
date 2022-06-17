@@ -4,11 +4,11 @@ namespace Cinnamon_Cinema_Movie_Theatre;
 
 public class DrawSeatsTable
 {
-    public async Task<Table> LiveTable()
+    public async Task<Table> LiveTable(List<Tuple<string,int>> seats)
     {
         var table = new Table().LeftAligned().BorderColor(Color.Blue);
         var delayTable = 100;
-        var delayRover = 200;
+        var delaySeats = 200;
         await AnsiConsole.Live(table).AutoClear(false).StartAsync(async ctx =>
         {
             table.AddColumn(" ");
@@ -48,7 +48,7 @@ public class DrawSeatsTable
             //     counter++;
             // }
             table.Title = new TableTitle("\nSeats Table");
-            table.Caption = new TableTitle("Seats Availability");
+            table.Caption = new TableTitle("SeatManager Availability");
         });
         return table;
     }
