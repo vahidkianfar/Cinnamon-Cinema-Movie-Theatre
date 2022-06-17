@@ -1,6 +1,6 @@
 ﻿using Npgsql;
 
-namespace Cinnamon_Cinema_Movie_Theatre;
+namespace Cinnamon_Cinema_Movie_Theatre.Manager;
 
 public class SeatManager:IDatabase
 {
@@ -8,10 +8,15 @@ public class SeatManager:IDatabase
     public List<Tuple<string, int,int>> SeatsStatus { get; private set; }
     public static NpgsqlConnection Connection { get; private set; }
     
-    public SeatManager(NpgsqlConnection connection)
-    {
-        Connection = connection;
-    }
+    public SeatManager(NpgsqlConnection connection)=>Connection = connection;
+
+    // private static async Task<NpgsqlConnection> GetConnection()
+    // {
+    //     await using var connectionToDatabase = new NpgsqlConnection(IDatabase.ConnectionInitializer);
+    //     await connectionToDatabase.OpenAsync();
+    //     return connectionToDatabase;
+    // }
+    
     
     // private static async Task Connection()
     // {
@@ -24,7 +29,7 @@ public class SeatManager:IDatabase
         await connectionToDatabase.OpenAsync();
         await using var command = new NpgsqlCommand(
             "SELECT rowblock, columnnumber, status FROM seats ORDER BY rowblock, columnnumber",
-            Connection);
+             Connection);
         
         {
             await using var reader = await command.ExecuteReaderAsync();
@@ -45,7 +50,7 @@ public class SeatManager:IDatabase
         //         SET status = @status WHERE rowblock=@rows AND columnnumber=@cols";
 
         await using (var command = new NpgsqlCommand($"UPDATE seats SET status = '{newStatus}' " +
-                                                     $"WHERE rowblock='{selectedRow}' AND columnnumber='{selectedCols}' ", Connection))
+                                                     $"WHERE rowblock='{selectedRow}' AND columnnumber='{selectedCols}' ",  Connection))
         {
             command.Parameters.AddWithValue(@"status", newStatus);
             command.Parameters.AddWithValue(@"rowblock", selectedRow);

@@ -1,8 +1,9 @@
 ﻿using Npgsql;
 using Cinnamon_Cinema_Movie_Theatre;
+using Cinnamon_Cinema_Movie_Theatre.Manager;
+using Cinnamon_Cinema_Movie_Theatre.UI;
 
-await using var connectionToDatabase = new NpgsqlConnection(IDatabase.ConnectionInitializer);
-await connectionToDatabase.OpenAsync();
+
 
 // var movieDetails = new Movies();
 // await Movies.GetMovieTitle(movieDetails);
@@ -10,8 +11,8 @@ await connectionToDatabase.OpenAsync();
 // foreach (var title in movieDetails.Title)
 //     Console.WriteLine(title);
 
-var seatDetails = new SeatManager(connectionToDatabase);
-await SeatManager.GetAvailableSeats(seatDetails);
+// var seatDetails = new SeatManager(connectionToDatabase);
+// await SeatManager.GetAvailableSeats(seatDetails);
 
 // foreach(var status in seatDetails.SeatsStatus)
 //     Console.WriteLine(status.Item1 + " " + status.Item2);
@@ -21,5 +22,6 @@ await SeatManager.GetAvailableSeats(seatDetails);
 
 //await SeatManager.UpdateSeatStatus('B', 3, 1);
 
-var drawTable= new DrawSeatsTable();
-await drawTable.LiveTable(seatDetails.SeatsStatus);
+
+MainMenu mainMenu = new MainMenu();
+await mainMenu.Start();

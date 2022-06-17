@@ -1,14 +1,19 @@
-﻿using System.Runtime.CompilerServices;
-using Npgsql;
+﻿using Npgsql;
 
-namespace Cinnamon_Cinema_Movie_Theatre;
+namespace Cinnamon_Cinema_Movie_Theatre.Manager;
 
 public class Movies:IDatabase
 {
     public List<string> Title { get; private set; }
     public string Genre { get; set; }
     public string Director { get; set; }
-    
+
+    public async Task<NpgsqlConnection> GetConnection()
+    {
+        await using var connectionToDatabase = new NpgsqlConnection(IDatabase.ConnectionInitializer);
+        await connectionToDatabase.OpenAsync();
+        return connectionToDatabase;
+    }
     public static async Task GetMovieTitle(Movies movie)
     {
         await using var connectionToDatabase = new NpgsqlConnection(IDatabase.ConnectionInitializer);

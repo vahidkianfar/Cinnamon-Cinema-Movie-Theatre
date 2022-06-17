@@ -1,14 +1,14 @@
 ﻿using Spectre.Console;
 
-namespace Cinnamon_Cinema_Movie_Theatre;
+namespace Cinnamon_Cinema_Movie_Theatre.UI;
 
 public class DrawSeatsTable
 {
     public async Task<Table> LiveTable(List<Tuple<string,int,int>> seats)
     {
         var table = new Table().LeftAligned().BorderColor(Color.Blue);
-        var delayTable = 100;
-        var delaySeats = 200;
+        var delayTable = 0;
+        var delaySeats = 0;
         await AnsiConsole.Live(table).AutoClear(false).StartAsync(async ctx =>
         {
             table.AddColumn(" ");
