@@ -46,13 +46,13 @@ public class DrawSeatsTable
                 switch (row)
                 {
                     case "A":
-                        table.UpdateCell(0, column, "X");
+                        table.UpdateCell(0, column, "[red]X[/]");
                         break;
                     case "B":
-                        table.UpdateCell(1, column, "X");
+                        table.UpdateCell(1, column, "[red]X[/]");
                         break;
                     case "C":
-                        table.UpdateCell(2, column, "X");
+                        table.UpdateCell(2, column, "[red]X[/]");
                         break;
                 }
 
@@ -61,13 +61,6 @@ public class DrawSeatsTable
 
             }
 
-            // while(counter<15)
-            // {
-            //     table.UpdateCell(counter, 0, "X");
-            //     ctx.Refresh();
-            //     await Task.Delay(delayRover);
-            //     counter++;
-            // }
             table.Title = new TableTitle("\nSeats Table");
             table.Caption = new TableTitle("SeatManager Availability");
         });

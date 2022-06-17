@@ -1,43 +1,25 @@
 ﻿using Npgsql;
 using Cinnamon_Cinema_Movie_Theatre;
 
-// const string connectionInitializer = "Host=localhost;" +
-//                                      "Username=postgres;" +
-//                                      "Password=johnybravo;" +
-//                                      "Database=CinnamonCinemas";
-//
-// await using var connectionToDatabase = new NpgsqlConnection(connectionInitializer);
-// await connectionToDatabase.OpenAsync();
-//
-// await using (var cmd = new NpgsqlCommand("SELECT title FROM movies", connectionToDatabase))
-// await using (var reader = await cmd.ExecuteReaderAsync()) 
-// {
-//     Console.WriteLine();
-//
-//     while (await reader.ReadAsync())
-//     {
-//         Console.WriteLine(reader.GetString(0));
-//     }
-// }
+await using var connectionToDatabase = new NpgsqlConnection(IDatabase.ConnectionInitializer);
+await connectionToDatabase.OpenAsync();
 
+// var movieDetails = new Movies();
+// await Movies.GetMovieTitle(movieDetails);
 
+// foreach (var title in movieDetails.Title)
+//     Console.WriteLine(title);
 
-var movieDetails = new Movies();
-await Movies.GetMovieTitle(movieDetails);
-
-foreach (var title in movieDetails.Title)
-    Console.WriteLine(title);
-
-var seatDetails = new SeatManager();
+var seatDetails = new SeatManager(connectionToDatabase);
 await SeatManager.GetAvailableSeats(seatDetails);
 
-foreach(var status in seatDetails.seatsStatus)
-    Console.WriteLine(status.Item1 + " " + status.Item2);
-    
+// foreach(var status in seatDetails.SeatsStatus)
+//     Console.WriteLine(status.Item1 + " " + status.Item2);
+
 
 //Working UpdateSeatStatus
 
-//await SeatManager.UpdateSeatStatus('C', 4, 1);
+//await SeatManager.UpdateSeatStatus('B', 3, 1);
 
 var drawTable= new DrawSeatsTable();
-await drawTable.LiveTable(seatDetails.seatsStatus);
+await drawTable.LiveTable(seatDetails.SeatsStatus);
