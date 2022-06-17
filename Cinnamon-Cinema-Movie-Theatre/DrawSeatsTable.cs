@@ -4,7 +4,7 @@ namespace Cinnamon_Cinema_Movie_Theatre;
 
 public class DrawSeatsTable
 {
-    public async Task<Table> LiveTable(List<Tuple<string,int>> seats)
+    public async Task<Table> LiveTable(List<Tuple<string,int,int>> seats)
     {
         var table = new Table().LeftAligned().BorderColor(Color.Blue);
         var delayTable = 100;
@@ -40,6 +40,27 @@ public class DrawSeatsTable
             }
         
             var counter = 0;
+            foreach (var (row, column, status) in seats)
+            {
+                if (status == 0) continue;
+                switch (row)
+                {
+                    case "A":
+                        table.UpdateCell(0, column, "X");
+                        break;
+                    case "B":
+                        table.UpdateCell(1, column, "X");
+                        break;
+                    case "C":
+                        table.UpdateCell(2, column, "X");
+                        break;
+                }
+
+                ctx.Refresh();
+                await Task.Delay(delaySeats);
+
+            }
+
             // while(counter<15)
             // {
             //     table.UpdateCell(counter, 0, "X");

@@ -34,7 +34,10 @@ await SeatManager.GetAvailableSeats(seatDetails);
 foreach(var status in seatDetails.seatsStatus)
     Console.WriteLine(status.Item1 + " " + status.Item2);
     
-// var drawTable= new DrawSeatsTable();
-// await drawTable.LiveTable(seatDetails.seatsStatus);
 
-await SeatManager.UpdateSeatStatus('A', 1, 1);
+//Working UpdateSeatStatus
+
+//await SeatManager.UpdateSeatStatus('C', 4, 1);
+
+var drawTable= new DrawSeatsTable();
+await drawTable.LiveTable(seatDetails.seatsStatus);
