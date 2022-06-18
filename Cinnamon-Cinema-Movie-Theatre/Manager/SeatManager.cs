@@ -5,7 +5,7 @@ namespace Cinnamon_Cinema_Movie_Theatre.Manager;
 public class SeatManager:IDatabase
 {
     
-    public static List<Tuple<string, int,int>> SeatsStatus { get; set; }
+    public static List<Tuple<string, int,int>>? SeatsStatus { get; set; }
     public static NpgsqlConnection? _connection { get; set; }
     
     public SeatManager(NpgsqlConnection? connection)=>_connection = connection;

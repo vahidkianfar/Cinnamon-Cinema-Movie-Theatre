@@ -25,7 +25,7 @@ public class ConsoleHelper
             SeatManager._connection = connectionToDatabase;
             SeatManager.GetAvailableSeats();
             var drawTable = new DrawSeatsTable();
-            drawTable.LiveTable(SeatManager.SeatsStatus);
+            drawTable.LiveTable(SeatManager.SeatsStatus!);
             connectionToDatabase.Close();
             Console.ResetColor();
             for (var optionCounter = 0; optionCounter < options.Length; optionCounter++)

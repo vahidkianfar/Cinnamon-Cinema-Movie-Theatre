@@ -5,8 +5,8 @@ namespace Cinnamon_Cinema_Movie_Theatre.Manager;
 public class MovieManager:IDatabase
 {
     public static List<Tuple<string,string,string>>? MovieDetails { get; private set; }
-    public string Genre { get; set; }
-    public string Director { get; set; }
+    // public string Genre { get; set; }
+    // public string Director { get; set; }
     public static NpgsqlConnection? _connection { get; set; }
     public MovieManager(NpgsqlConnection? connection)=>_connection = connection;
     public static void GetMovieDetails()

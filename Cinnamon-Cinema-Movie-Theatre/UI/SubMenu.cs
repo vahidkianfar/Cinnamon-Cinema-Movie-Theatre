@@ -12,7 +12,7 @@ public class SubMenu
         MovieManager._connection=connectionToDatabase;
         MovieManager.GetMovieDetails();
         
-        var selectInstructionOption = ConsoleHelper.MultipleChoice(true, $"1. {MovieManager.MovieDetails[0].Item2} by {MovieManager.MovieDetails[0].Item3}",
+        var selectInstructionOption = ConsoleHelper.MultipleChoice(true, $"1. {MovieManager.MovieDetails![0].Item2} by {MovieManager.MovieDetails[0].Item3}",
              "2. Back", "3. Exit");
         connectionToDatabase.Close();
 
@@ -34,7 +34,7 @@ public class SubMenu
     {
         while (true)
         {
-            var selectInstructionOption = ConsoleHelper.MultipleChoice(true, $"1. Book Gold Seat (choose your seat)", "2. Book Silver Seat (first available seat)", "3. Back", "4. Back to Main Menu" ,"5. Exit");
+            var selectInstructionOption = ConsoleHelper.MultipleChoice(true, $"1. Book Gold Seat (choose your seat)", "2. Book Silver Seat (first available seats)", "3. Back", "4. Back to Main Menu" ,"5. Exit");
             switch (selectInstructionOption)
             {
                 case 0:
