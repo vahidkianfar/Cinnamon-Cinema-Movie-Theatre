@@ -38,7 +38,7 @@ public class SubMenu
             switch (selectInstructionOption)
             {
                 case 0:
-                    Console.Write("Enter Seat Row  (e.g. A): ");
+                    Console.Write("\nEnter Seat Row  (e.g. A): ");
                     var inputRow = Convert.ToChar(Console.ReadLine()!);
                     Console.Write("Enter Seat Column (e.g. 1): ");
                     var inputColumn = Convert.ToInt32(Console.ReadLine()!);

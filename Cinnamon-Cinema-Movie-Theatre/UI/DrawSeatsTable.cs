@@ -61,7 +61,7 @@ public class DrawSeatsTable
             }
 
             table.Title = new TableTitle("\nSeats Table");
-            table.Caption = new TableTitle("SeatManager Availability");
+            table.Caption = new TableTitle("Seats Availability");
         });
         return table;
     }
