@@ -4,8 +4,9 @@ namespace Cinnamon_Cinema_Movie_Theatre.Manager;
 
 public class BookingManager
 {
-    public static NpgsqlConnection? _connection { get; set; }
+    private static NpgsqlConnection? _connection { get; set; }
     public BookingManager(NpgsqlConnection? connection)=>_connection = connection;
+    public static void SetConnection(NpgsqlConnection? connection)=>_connection = connection;
     public static void ReserveSilverSeat(int numberOfSeats)
     {
         if (numberOfSeats > 3)
@@ -18,7 +19,7 @@ public class BookingManager
         var randomSeatNumber=new Random();
         var connectionToDatabase = new NpgsqlConnection(IDatabase.ConnectionInitializer);
         connectionToDatabase.Open();
-        SeatManager._connection = connectionToDatabase;
+        SeatManager.SetConnection(connectionToDatabase);
         SeatManager.GetAvailableSeats();
         var allocated = 0;
         var colCounter = 0;
@@ -51,7 +52,7 @@ public class BookingManager
     {
         var connectionToDatabase = new NpgsqlConnection(IDatabase.ConnectionInitializer);
         connectionToDatabase.Open();
-        SeatManager._connection = connectionToDatabase;
+        SeatManager.SetConnection(connectionToDatabase);
         SeatManager.UpdateSeatStatus(rowBlock, seatNumber, 1);
         connectionToDatabase.Close();
     }
@@ -59,7 +60,7 @@ public class BookingManager
     {
         var connectionToDatabase = new NpgsqlConnection(IDatabase.ConnectionInitializer);
         connectionToDatabase.Open();
-        SeatManager._connection= connectionToDatabase;
+        SeatManager.SetConnection(connectionToDatabase);
         SeatManager.GetAvailableSeats();
         foreach (var status in SeatManager.SeatsStatus!)
             SeatManager.UpdateSeatStatus(Convert.ToChar(status.Item1), status.Item2,0);

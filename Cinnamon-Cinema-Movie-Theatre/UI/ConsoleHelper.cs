@@ -22,10 +22,10 @@ public class ConsoleHelper
         do 
         {
             connectionToDatabase.Open();
-            SeatManager._connection = connectionToDatabase;
-            SeatManager.GetAvailableSeats();
+            SeatManager.SetConnection(connectionToDatabase);
+            var seatsStatus=SeatManager.GetAvailableSeats();
             var drawTable = new DrawSeatsTable();
-            drawTable.LiveTable(SeatManager.SeatsStatus!);
+            drawTable.LiveTable(seatsStatus);
             connectionToDatabase.Close();
             Console.ResetColor();
             for (var optionCounter = 0; optionCounter < options.Length; optionCounter++)

@@ -7,8 +7,9 @@ public class MovieManager:IDatabase
     public static List<Tuple<string,string,string>>? MovieDetails { get; private set; }
     // public string Genre { get; set; }
     // public string Director { get; set; }
-    public static NpgsqlConnection? _connection { get; set; }
+    private static NpgsqlConnection? _connection { get; set; }
     public MovieManager(NpgsqlConnection? connection)=>_connection = connection;
+    public static void SetConnection(NpgsqlConnection? connection)=>_connection = connection;
     public static void GetMovieDetails()
     {
           var command = new NpgsqlCommand("SELECT genre, title, director FROM movies", _connection);

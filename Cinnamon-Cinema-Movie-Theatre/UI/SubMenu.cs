@@ -9,10 +9,10 @@ public class SubMenu
     {
         var connectionToDatabase = new NpgsqlConnection(IDatabase.ConnectionInitializer);
         connectionToDatabase.Open();
-        MovieManager._connection=connectionToDatabase;
+        MovieManager.SetConnection(connectionToDatabase);
         MovieManager.GetMovieDetails();
         
-        var selectInstructionOption = ConsoleHelper.MultipleChoice(true, $"1. {MovieManager.MovieDetails![0].Item2} by {MovieManager.MovieDetails[0].Item3}",
+        var selectInstructionOption = ConsoleHelper.MultipleChoice(true, $"1. Title: {MovieManager.MovieDetails![0].Item2} (Directed by {MovieManager.MovieDetails[0].Item3})",
              "2. Back", "3. Exit");
         connectionToDatabase.Close();
 

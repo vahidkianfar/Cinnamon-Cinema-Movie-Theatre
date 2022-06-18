@@ -6,9 +6,9 @@ public class SeatManager:IDatabase
 {
     
     public static List<Tuple<string, int,int>>? SeatsStatus { get; set; }
-    public static NpgsqlConnection? _connection { get; set; }
-    
+    private static NpgsqlConnection? _connection { get; set; }
     public SeatManager(NpgsqlConnection? connection)=>_connection = connection;
+    public static void SetConnection(NpgsqlConnection? connection)=>_connection = connection;
 
     // private static async Task<NpgsqlConnection> GetConnection()
     // {
@@ -23,7 +23,7 @@ public class SeatManager:IDatabase
     //     await using var connectionToDatabase = new NpgsqlConnection(IDatabase.ConnectionInitializer);
     //     await connectionToDatabase.OpenAsync();
     // }
-    public static void GetAvailableSeats()
+    public static List<Tuple<string, int,int>> GetAvailableSeats()
     {
          using var command = new NpgsqlCommand(
             "SELECT rowblock, columnnumber, status FROM seats ORDER BY rowblock, columnnumber",
@@ -35,6 +35,7 @@ public class SeatManager:IDatabase
                 result.Add(new Tuple<string, int,int>
                     (reader.GetString(0), reader.GetInt32( 1), reader.GetInt32(2)));
             SeatsStatus = result;
+            return result;
          }
     }
 
