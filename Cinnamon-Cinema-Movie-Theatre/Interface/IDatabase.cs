@@ -7,7 +7,7 @@ public interface IDatabase
 
 const string ConnectionInitializer = "Host=localhost;" +
                                      "Username=postgres;" +
-                                     "Password=YourPassword;" +
+                                     "Password=johnybravo;" +
                                      "Database=CinnamonCinemas";
 
 
