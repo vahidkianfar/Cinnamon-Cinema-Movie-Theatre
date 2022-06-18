@@ -3,6 +3,7 @@
 #Initial Approach:
 1. There is one database that stored "Movies", "Seats", "Users"
 2. "BookingManager" class, Handles the User's requests.
+3. Everytime that you start the program, All seatStatuses on the database reset to Free.
 
 ### We have two kinds of Seats:
 1. Gold seat: User can choose Any Available seats.
