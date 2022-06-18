@@ -10,5 +10,12 @@ const string ConnectionInitializer = "Host=localhost;" +
                                      "Password=johnybravo;" +
                                      "Database=CinnamonCinemas";
 
+public partial class Connection
+{
+    public static NpgsqlConnection GetConnection()
+    {
+        return new NpgsqlConnection(ConnectionInitializer);
+    }
+}
 
 }

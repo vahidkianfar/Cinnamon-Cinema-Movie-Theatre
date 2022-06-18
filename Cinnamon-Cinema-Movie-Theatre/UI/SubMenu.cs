@@ -7,7 +7,7 @@ public class SubMenu
 {
     public static void ShowMoviesMenu()
     {
-        var connectionToDatabase = new NpgsqlConnection(IDatabase.ConnectionInitializer);
+        var connectionToDatabase = IDatabase.Connection.GetConnection();
         connectionToDatabase.Open();
         MovieManager.SetConnection(connectionToDatabase);
         MovieManager.GetMovieDetails();

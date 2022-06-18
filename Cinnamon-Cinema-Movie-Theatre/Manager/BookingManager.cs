@@ -17,7 +17,7 @@ public class BookingManager
             return;
         }
         var randomSeatNumber=new Random();
-        var connectionToDatabase = new NpgsqlConnection(IDatabase.ConnectionInitializer);
+        var connectionToDatabase = IDatabase.Connection.GetConnection();;
         connectionToDatabase.Open();
         SeatManager.SetConnection(connectionToDatabase);
         SeatManager.GetAvailableSeats();
@@ -50,7 +50,7 @@ public class BookingManager
     }
     public static void ReserveGoldSeat(char rowBlock, int seatNumber)
     {
-        var connectionToDatabase = new NpgsqlConnection(IDatabase.ConnectionInitializer);
+        var connectionToDatabase = IDatabase.Connection.GetConnection();
         connectionToDatabase.Open();
         SeatManager.SetConnection(connectionToDatabase);
         SeatManager.UpdateSeatStatus(rowBlock, seatNumber, 1);
@@ -58,7 +58,7 @@ public class BookingManager
     }
     public static void ResetSeats()
     {
-        var connectionToDatabase = new NpgsqlConnection(IDatabase.ConnectionInitializer);
+        var connectionToDatabase = IDatabase.Connection.GetConnection();
         connectionToDatabase.Open();
         SeatManager.SetConnection(connectionToDatabase);
         SeatManager.GetAvailableSeats();
