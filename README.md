@@ -10,6 +10,7 @@
 
    ![](https://github.com/vahidkianfar/Cinnamon-Cinema-Movie-Theatre/blob/master/Cinnamon-Cinema-Movie-Theatre/Gif/CinnamonCinema.gif)
    
-3. If there isn't any free seat.
+ 
+If there isn't any free seat:
 
   ![](https://github.com/vahidkianfar/Cinnamon-Cinema-Movie-Theatre/blob/master/Cinnamon-Cinema-Movie-Theatre/Gif/CinnamonCinema-NoAvailableSeats.gif)
