@@ -7,7 +7,7 @@ public class MainMenu
 {
     public static void Start()
     {
-        Console.Clear();
+        //Console.Clear();
         var selectInstructionOption = ConsoleHelper.MultipleChoice(true, "1. See Available Movies",
             "2. Exit");
         switch (selectInstructionOption)
