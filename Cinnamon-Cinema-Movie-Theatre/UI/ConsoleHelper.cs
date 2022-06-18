@@ -16,8 +16,8 @@ public class ConsoleHelper
         const int optionsPerLine = 1;
         const int spacingPerLine = 14;
         var currentSelection = 0;
-        ConsoleKey key;
         Console.CursorVisible = false;
+        ConsoleKey key;
 
         do 
         {
@@ -30,6 +30,7 @@ public class ConsoleHelper
             Console.ResetColor();
             for (var optionCounter = 0; optionCounter < options.Length; optionCounter++)
             {
+                Console.CursorVisible = false;
                 Console.SetCursorPosition(startX + (optionCounter % optionsPerLine) * spacingPerLine, startY + optionCounter / optionsPerLine);
                 if (optionCounter == currentSelection)
                     Console.ForegroundColor = ConsoleColor.DarkCyan;
