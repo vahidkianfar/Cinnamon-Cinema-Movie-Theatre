@@ -22,4 +22,16 @@ public class MovieManager:IDatabase
               MovieDetails = title;
           }
     }
+    // public async Task<List<Movies>> GetMovieDetailsAsync()
+    // {
+    //     var command = new NpgsqlCommand("SELECT genre, title, director FROM movies", _connection);
+    //     {
+    //         using var reader = command.ExecuteReader();
+    //         var title = new List<Tuple<string, string, string>>();
+    //         while (await reader.ReadAsync())
+    //             title.Add(new Tuple<string, string, string>(reader.GetString(0), reader.GetString(1),
+    //                 reader.GetString(2)));
+    //         return title;
+    //     }
+    // }
 }
