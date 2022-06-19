@@ -1,6 +1,6 @@
 ﻿namespace Cinnamon_Cinema_Movie_Theatre.UI;
 
-public class CinemmaBanner
+public class CinemaBanner
 {
     public const string GoodbyeMessage = @"
                                      |

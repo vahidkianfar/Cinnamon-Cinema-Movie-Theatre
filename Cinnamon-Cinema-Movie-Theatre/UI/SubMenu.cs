@@ -27,7 +27,7 @@ public class SubMenu
                 break;
             case 2:
                 Console.ForegroundColor = ConsoleColor.DarkBlue;
-                Console.WriteLine(CinemmaBanner.GoodbyeMessage);
+                Console.WriteLine(CinemaBanner.GoodbyeMessage);
                 Environment.Exit(0);
                 break;
         }
@@ -66,7 +66,7 @@ public class SubMenu
                         break;
                     case 4:
                         Console.ForegroundColor = ConsoleColor.DarkBlue;
-                        Console.WriteLine(CinemmaBanner.GoodbyeMessage);
+                        Console.WriteLine(CinemaBanner.GoodbyeMessage);
                         Environment.Exit(0);
                         break;
                 }
