@@ -42,9 +42,9 @@ public class UserMenu
             
                             case 1:
                             {
-                                Console.Write("Enter your username: ");
+                                Console.Write("Enter a username: ");
                                 string usernameRegister = Console.ReadLine()!;
-                                Console.Write("Enter your password: ");
+                                Console.Write("Enter a password: ");
                                 string passwordRegister = Console.ReadLine()!;
                                 UserManager.SetConnection(connectionToDatabase);
                                 var register = UserManager.Register(usernameRegister, passwordRegister);
