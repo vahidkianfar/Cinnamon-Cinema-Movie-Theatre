@@ -20,8 +20,7 @@ public class MainMenu
             }
             
             case 1:
-                Console.ForegroundColor = ConsoleColor.DarkBlue;
-                Console.WriteLine(CinemaBanner.GoodbyeMessage);
+                CinemaBanner.PrintBanner();
                 Environment.Exit(0);
                 break;
         }

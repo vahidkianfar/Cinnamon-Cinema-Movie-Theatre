@@ -18,4 +18,10 @@ public class CinemaBanner
  /      \                 ------------------------
 /________\___________________/________________\______                                                                                                                                               
 ";
+    
+    public static void PrintBanner()
+    {
+        Console.ForegroundColor = ConsoleColor.DarkBlue;
+        Console.WriteLine(GoodbyeMessage);
+    }
 }
