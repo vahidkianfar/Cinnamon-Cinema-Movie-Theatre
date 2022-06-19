@@ -37,19 +37,25 @@ public class MovieManager:IDatabase
     
     public static void SearchMovies(string searchTitle)
     {
-        var command = new NpgsqlCommand("SELECT movie_title, rate, year, star_cast FROM imdb_top_250_movies WHERE movie_title=@movie_title", _connection);
+        var command = new NpgsqlCommand("SELECT place, movie_title, rate, year, star_cast FROM imdb_top_250_movies WHERE movie_title=@movie_title", _connection);
         command.Parameters.AddWithValue("@movie_title", searchTitle);
         using var reader = command.ExecuteReader();
-        while (reader.Read())
+        if (!reader.Read())
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("No results found");
+            Console.ResetColor();
+        }
+        else
         {
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.Write("Title: " + reader.GetString(0));
-            Console.Write(" - Rate: " + Math.Round(reader.GetDouble(1), 1));
-            Console.Write(" - Year: " + reader.GetInt32(2));
-            Console.Write(" - Star Casts: " + reader.GetString(3));
+            Console.Write("Place: " + reader.GetInt32(0));
+            Console.Write(" - Title: " + reader.GetString(1));
+            Console.Write(" - Rate: " + Math.Round(reader.GetDouble(2), 1));
+            Console.Write(" - Year: " + reader.GetInt32(3));
+            Console.Write(" - Director & Casts: " + reader.GetString(4));
             Console.WriteLine();
             Console.ResetColor();
         }
-            
     }
 }
