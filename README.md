@@ -14,7 +14,7 @@
 2. Silver Seats (based on KATA) : Automatically assigned first available seats (maximum of 3 seats)
    (if first user buy a gold seat and choose A2 and the second user wants 3 silver seats, Booking Manager will assigned A1,A3,A4 for the second user)
 
-   ![](https://github.com/vahidkianfar/Cinnamon-Cinema-Movie-Theatre/blob/master/Cinnamon-Cinema-Movie-Theatre/Gif/CinnamonCinema.gif)
+![](https://github.com/vahidkianfar/Cinnamon-Cinema-Movie-Theatre/blob/master/Cinnamon-Cinema-Movie-Theatre/Gif/CinnamonCinema.gif)
  
 ### No Available Seats:
 
