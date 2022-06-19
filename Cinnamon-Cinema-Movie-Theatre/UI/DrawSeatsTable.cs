@@ -1,4 +1,5 @@
-﻿using Spectre.Console;
+﻿using Cinnamon_Cinema_Movie_Theatre.Models;
+using Spectre.Console;
 
 namespace Cinnamon_Cinema_Movie_Theatre.UI;
 
@@ -60,7 +61,7 @@ public class DrawSeatsTable
 
             }
 
-            table.Title = new TableTitle("\nSeats Table");
+            table.Title = new TableTitle("\nCinnamon Cinema Theatre");
             table.Caption = new TableTitle("Seats Availability");
         });
         return table;

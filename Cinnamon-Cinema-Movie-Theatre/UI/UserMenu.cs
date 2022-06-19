@@ -24,13 +24,17 @@ public class UserMenu
                                 string username = Console.ReadLine()!;
                                 Console.Write("Enter your password: ");
                                 string password = Console.ReadLine()!;
-            
-                                
                                 UserManager.SetConnection(connectionToDatabase);
                                 var userChecker = UserManager.Login(username, password);
-            
+
                                 if (userChecker)
+                                {
+                                    Console.Clear();
+                                    Console.ForegroundColor = ConsoleColor.Green;
+                                    Console.WriteLine("Login successful!, Welcome " + username);
+                                    Console.ResetColor();
                                     MainMenu.Start();
+                                }
                                 else
                                 {
                                     Console.ForegroundColor = ConsoleColor.Red;

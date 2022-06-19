@@ -1,4 +1,5 @@
 ﻿using Cinnamon_Cinema_Movie_Theatre.Manager;
+using Cinnamon_Cinema_Movie_Theatre.Models;
 using Npgsql;
 
 namespace Cinnamon_Cinema_Movie_Theatre.UI;
