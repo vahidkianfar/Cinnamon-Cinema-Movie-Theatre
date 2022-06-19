@@ -4,7 +4,7 @@ namespace Cinnamon_Cinema_Movie_Theatre.UI;
 
 public class DrawSeatsTable
 {
-    public async Task<Table> LiveTable(List<Tuple<string,int,int>> seats)
+    public async Task LiveTable(List<Tuple<string, int, int>> seats)
     {
         var table = new Table().LeftAligned().BorderColor(Color.Gold3_1);
         var delayTable = 0;
@@ -38,7 +38,7 @@ public class DrawSeatsTable
                 ctx.Refresh();
                 await Task.Delay(delayTable);
             }
-            
+            var allotedSeats = 0;
             foreach (var (row, column, status) in seats)
             {
                 if (status == 0) continue;
@@ -46,12 +46,15 @@ public class DrawSeatsTable
                 {
                     case "A":
                         table.UpdateCell(0, column, "[red]X[/]");
+                        allotedSeats++;
                         break;
                     case "B":
                         table.UpdateCell(1, column, "[red]X[/]");
+                        allotedSeats++;
                         break;
                     case "C":
                         table.UpdateCell(2, column, "[red]X[/]");
+                        allotedSeats++;
                         break;
                 }
 
@@ -61,8 +64,7 @@ public class DrawSeatsTable
             }
             
             table.Title = new TableTitle("\nCinnamon Cinema Theatre");
-            table.Caption = new TableTitle("Seats Availability");
+            table.Caption = new TableTitle("Remaining Seats: " + (15 - allotedSeats));
         });
-        return table;
     }
 }

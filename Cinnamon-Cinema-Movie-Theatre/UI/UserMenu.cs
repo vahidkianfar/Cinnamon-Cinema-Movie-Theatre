@@ -1,4 +1,5 @@
 ﻿using Cinnamon_Cinema_Movie_Theatre.Manager;
+using Cinnamon_Cinema_Movie_Theatre.Models;
 using Npgsql;
 
 namespace Cinnamon_Cinema_Movie_Theatre.UI;
@@ -32,7 +33,8 @@ public class UserMenu
                                     Console.ForegroundColor = ConsoleColor.Green;
                                     Console.WriteLine("Login successful!, Welcome " + username);
                                     Console.ResetColor();
-                                    MainMenu.Start();
+                                    var loggedUser = new User(username);
+                                    MainMenu.Start(loggedUser);
                                 }
                                 else
                                 {

@@ -1,9 +1,11 @@
 ﻿using Cinnamon_Cinema_Movie_Theatre.Manager;
+using Cinnamon_Cinema_Movie_Theatre.Models;
+
 namespace Cinnamon_Cinema_Movie_Theatre.UI;
 
 public class SubMenu
 {
-    public static void ShowMoviesMenu()
+    public static void ShowMoviesMenu(User loggedUser)
     {
         var connectionToDatabase = IDatabase.Connection.GetConnection();
         connectionToDatabase.Open();
@@ -18,10 +20,10 @@ public class SubMenu
         switch (selectInstructionOption)
         {
             case 0:
-                StartBooking();
+                StartBooking(loggedUser);
                 break;
             case 1:
-                MainMenu.Start();
+                MainMenu.Start(loggedUser);
                 break;
             case 2:
                 CinemaBanner.PrintBanner();
@@ -31,7 +33,7 @@ public class SubMenu
     }
 
     
-    private static void StartBooking()
+    private static void StartBooking(User loggedUser)
     {
         try
         {
@@ -48,6 +50,7 @@ public class SubMenu
                         Console.Write("Enter Seat Column (e.g. 1): ");
                         var inputColumn = Convert.ToInt32(Console.ReadLine()!);
                         BookingManager.ReserveGoldSeat(char.ToUpper(inputRow), inputColumn);
+                        
                         continue;
 
                     case 1:
@@ -56,10 +59,10 @@ public class SubMenu
                         BookingManager.ReserveSilverSeat(inputTickets);
                         continue;
                     case 2:
-                        ShowMoviesMenu();
+                        ShowMoviesMenu(loggedUser);
                         break;
                     case 3:
-                        MainMenu.Start();
+                        MainMenu.Start(loggedUser);
                         break;
                     case 4:
                         CinemaBanner.PrintBanner();
@@ -74,7 +77,7 @@ public class SubMenu
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine($"System Message: {e.Message}");
             Console.ResetColor();
-            StartBooking();
+            StartBooking(loggedUser);
         }
 
     }

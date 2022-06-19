@@ -1,8 +1,10 @@
-﻿namespace Cinnamon_Cinema_Movie_Theatre.UI;
+﻿using Cinnamon_Cinema_Movie_Theatre.Models;
+
+namespace Cinnamon_Cinema_Movie_Theatre.UI;
 
 public class MainMenu
 {
-    public static void Start()
+    public static void Start(User loggedUser)
     {
         //Console.Clear();
         var selectInstructionOption = ConsoleHelper.MultipleChoice(true, "1. See Available Movies",
@@ -11,7 +13,7 @@ public class MainMenu
         {
             case 0:
             {
-                SubMenu.ShowMoviesMenu();
+                SubMenu.ShowMoviesMenu(loggedUser);
                 break;
             }
             
