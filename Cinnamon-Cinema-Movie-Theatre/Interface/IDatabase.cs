@@ -10,6 +10,11 @@ const string ConnectionInitializer = "Host=localhost;" +
                                      "Password=johnybravo;" +
                                      "Database=CinnamonCinemas";
 
+
+const string ConnectionInitializerTo250Movies = "Host=localhost;" +
+                                     "Username=postgres;" +
+                                     "Password=johnybravo;" +
+                                     "Database=postgres";
 public partial class Connection
 {
     public static NpgsqlConnection GetConnection()

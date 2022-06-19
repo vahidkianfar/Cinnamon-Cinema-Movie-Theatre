@@ -34,4 +34,22 @@ public class MovieManager:IDatabase
     //         return title;
     //     }
     // }
+    
+    public static void SearchMovies(string searchTitle)
+    {
+        var command = new NpgsqlCommand("SELECT movie_title, rate, year, star_cast FROM imdb_top_250_movies WHERE movie_title=@movie_title", _connection);
+        command.Parameters.AddWithValue("@movie_title", searchTitle);
+        using var reader = command.ExecuteReader();
+        while (reader.Read())
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write("Title: " + reader.GetString(0));
+            Console.Write(" - Rate: " + Math.Round(reader.GetDouble(1), 1));
+            Console.Write(" - Year: " + reader.GetInt32(2));
+            Console.Write(" - Star Casts: " + reader.GetString(3));
+            Console.WriteLine();
+            Console.ResetColor();
+        }
+            
+    }
 }

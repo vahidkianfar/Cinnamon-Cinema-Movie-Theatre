@@ -1,5 +1,6 @@
 ﻿using Cinnamon_Cinema_Movie_Theatre.Manager;
 using Cinnamon_Cinema_Movie_Theatre.Models;
+using Npgsql;
 
 namespace Cinnamon_Cinema_Movie_Theatre.UI;
 
@@ -14,7 +15,7 @@ public class SubMenu
 
         var selectInstructionOption = ConsoleHelper.MultipleChoice(true,
             $"1. Title: {MovieManager.MovieDetails![0].Item2} (Directed by {MovieManager.MovieDetails[0].Item3})",
-            "2. Back", "3. Exit");
+            "2. Search Movie by Title", "3. Back", "4. Exit");
         connectionToDatabase.Close();
 
         switch (selectInstructionOption)
@@ -23,9 +24,19 @@ public class SubMenu
                 StartBooking(loggedUser);
                 break;
             case 1:
+                Console.Write("Enter the title of the movie: ");
+                var searchTitle = Console.ReadLine()!;
+                var connectTo250Movies = new NpgsqlConnection(IDatabase.ConnectionInitializerTo250Movies);
+                connectTo250Movies.Open();
+                MovieManager.SetConnection(connectTo250Movies);
+                MovieManager.SearchMovies(searchTitle);
+                connectTo250Movies.Close();
                 MainMenu.Start(loggedUser);
                 break;
             case 2:
+                MainMenu.Start(loggedUser);
+                break;
+            case 3:
                 CinemaBanner.PrintBanner();
                 Environment.Exit(0);
                 break;

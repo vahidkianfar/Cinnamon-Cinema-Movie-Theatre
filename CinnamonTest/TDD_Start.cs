@@ -49,10 +49,8 @@ public class Tests
         var password = "12345";
         
         // Because usernames are unique, we need to create a new username to test with
-        
         //var register = UserManager.Register(username, password);
-        
-        
+
         var cmd = new NpgsqlCommand("SELECT * FROM users WHERE username=@username",
                 connection);
         cmd.Parameters.AddWithValue("@username", testUsername);
@@ -70,6 +68,16 @@ public class Tests
     {
         using var connectionToDatabase = new NpgsqlConnection(IDatabase.ConnectionInitializer);
         connectionToDatabase.Open();
+        Assert.That(connectionToDatabase.State, Is.EqualTo(System.Data.ConnectionState.Open));
+    }
+    [Test]
+    
+    public void MovieManager_Should_Return_Movie_by_Search()
+    {
+        using var connectionToDatabase = new NpgsqlConnection(IDatabase.ConnectionInitializerTo250Movies);
+        connectionToDatabase.Open();
+        MovieManager.SetConnection(connectionToDatabase);
+        MovieManager.SearchMovies("The Godfather");
         Assert.That(connectionToDatabase.State, Is.EqualTo(System.Data.ConnectionState.Open));
     }
 }

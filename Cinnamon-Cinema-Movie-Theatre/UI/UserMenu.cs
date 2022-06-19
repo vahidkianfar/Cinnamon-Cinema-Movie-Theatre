@@ -36,6 +36,7 @@ public class UserMenu
                                     var loggedUser = new User(username);
                                     MainMenu.Start(loggedUser);
                                 }
+                               
                                 else
                                 {
                                     Console.ForegroundColor = ConsoleColor.Red;
