@@ -2,15 +2,17 @@
 
 public class Movie
 {
-    public int Id { get; set; }
+    private int Id { get; set; }
     public string Title { get; set; }
     public string Genre { get; set; }
     public string Director { get; set; }
     public DateTime ReleaseDate { get; set; }
 
-    public Movie()
+    public Movie(string title, string genre, string director)
     {
-        
+        Title = title;
+        Genre = genre;
+        Director = director;
     }
     
 }

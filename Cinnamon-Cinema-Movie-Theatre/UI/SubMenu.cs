@@ -26,6 +26,8 @@ public class SubMenu
                 MainMenu.Start();
                 break;
             case 2:
+                Console.ForegroundColor = ConsoleColor.DarkBlue;
+                Console.WriteLine(CinemmaBanner.GoodbyeMessage);
                 Environment.Exit(0);
                 break;
         }
@@ -63,6 +65,8 @@ public class SubMenu
                         MainMenu.Start();
                         break;
                     case 4:
+                        Console.ForegroundColor = ConsoleColor.DarkBlue;
+                        Console.WriteLine(CinemmaBanner.GoodbyeMessage);
                         Environment.Exit(0);
                         break;
                 }

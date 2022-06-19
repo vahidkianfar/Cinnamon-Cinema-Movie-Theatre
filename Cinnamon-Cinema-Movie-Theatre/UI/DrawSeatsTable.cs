@@ -7,7 +7,7 @@ public class DrawSeatsTable
 {
     public async Task<Table> LiveTable(List<Tuple<string,int,int>> seats)
     {
-        var table = new Table().LeftAligned().BorderColor(Color.Blue);
+        var table = new Table().LeftAligned().BorderColor(Color.Gold3_1);
         var delayTable = 0;
         var delaySeats = 0;
         await AnsiConsole.Live(table).AutoClear(false).StartAsync(async ctx =>
@@ -60,7 +60,7 @@ public class DrawSeatsTable
                 await Task.Delay(delaySeats);
 
             }
-
+            
             table.Title = new TableTitle("\nCinnamon Cinema Theatre");
             table.Caption = new TableTitle("Seats Availability");
         });

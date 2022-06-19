@@ -16,8 +16,7 @@ public class UserManager
         var users = new List<Tuple<string,string,BigInteger,int>>();
         while (reader.Read())
         {
-             //Console.WriteLine((reader.GetString(0) + reader.GetString( 1) + reader.GetInt64(2) + reader.GetInt32(3)));
-             users.Add(new Tuple<string,string, BigInteger,int>
+            users.Add(new Tuple<string,string, BigInteger,int>
                  (reader.GetString(0), reader.GetString( 1), reader.GetInt64(2), reader.GetInt32(3)));
         }
         user.UserDetails = users;

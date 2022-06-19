@@ -22,7 +22,7 @@ public class DatabaseManager
 
         catch (Exception e)
         {
-            Console.WriteLine();
+            Console.WriteLine(e.Message);
         }
     }
 
@@ -65,10 +65,10 @@ public class DatabaseManager
                 , m_conn);
             seatsInsert.ExecuteNonQuery();
             m_conn.Close();
-        }
+        }   
         catch (Exception e)
         {
-            throw;
+            Console.WriteLine(e.Message);
         }
     }
 }

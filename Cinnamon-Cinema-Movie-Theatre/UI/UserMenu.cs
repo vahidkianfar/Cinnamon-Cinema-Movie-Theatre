@@ -68,6 +68,8 @@ public class UserMenu
                             }
             
                             case 2:
+                                Console.ForegroundColor = ConsoleColor.DarkBlue;
+                                Console.WriteLine(CinemmaBanner.GoodbyeMessage);
                                 Environment.Exit(0);
                                 break;
                         }
@@ -76,7 +78,7 @@ public class UserMenu
             }
 
         }
-        catch (Exception e)
+        catch (Exception)
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine($"System Message: Username already exists");

@@ -20,6 +20,8 @@ public class MainMenu
             }
             
             case 1:
+                Console.ForegroundColor = ConsoleColor.DarkBlue;
+                Console.WriteLine(CinemmaBanner.GoodbyeMessage);
                 Environment.Exit(0);
                 break;
         }

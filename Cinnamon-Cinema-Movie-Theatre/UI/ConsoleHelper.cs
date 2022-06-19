@@ -26,7 +26,9 @@ public class ConsoleHelper
             SeatManager.SetConnection(connectionToDatabase);
             var seatsStatus=SeatManager.GetAvailableSeats();
             var drawTable = new DrawSeatsTable();
+#pragma warning disable CS4014
             drawTable.LiveTable(seatsStatus);
+#pragma warning restore CS4014
             connectionToDatabase.Close();
             Console.ResetColor();
             for (var optionCounter = 0; optionCounter < options.Length; optionCounter++)
