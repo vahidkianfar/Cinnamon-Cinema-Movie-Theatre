@@ -72,5 +72,4 @@ public class Tests
         connectionToDatabase.Open();
         Assert.That(connectionToDatabase.State, Is.EqualTo(System.Data.ConnectionState.Open));
     }
-
 }

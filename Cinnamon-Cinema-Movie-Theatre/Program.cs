@@ -2,5 +2,6 @@
 using Cinnamon_Cinema_Movie_Theatre.UI;
 
 //DatabaseManager.CreateDatabase();
+
 BookingManager.ResetSeats();
 UserMenu.Start();

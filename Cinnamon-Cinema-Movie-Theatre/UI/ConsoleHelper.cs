@@ -11,7 +11,7 @@ public class ConsoleHelper
     {
         using var connectionToDatabase = new NpgsqlConnection(IDatabase.ConnectionInitializer);
         const int startX = 0;
-        const int startY = 13;
+        const int startY = 15;
         const int optionsPerLine = 1;
         const int spacingPerLine = 14;
         var currentSelection = 0;
