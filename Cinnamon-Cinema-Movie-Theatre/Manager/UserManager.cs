@@ -7,7 +7,7 @@ public class UserManager
 {
     private static NpgsqlConnection? _connection { get; set; }
     public UserManager(NpgsqlConnection? connection)=>_connection = connection;
-    private List<Tuple<string,string, BigInteger,int>>? UserDetails { get; set; }
+    public List<Tuple<string,string, BigInteger,int>>? UserDetails { get; set; }
     public static void SetConnection(NpgsqlConnection? connection)=>_connection = connection;
     public static void GetUserDetails(UserManager user)
     {
