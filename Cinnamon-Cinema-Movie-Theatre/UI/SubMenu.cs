@@ -1,7 +1,5 @@
-﻿using Cinnamon_Cinema_Movie_Theatre;
-using Cinnamon_Cinema_Movie_Theatre.Manager;
-using Npgsql;
-using Cinnamon_Cinema_Movie_Theatre.UI;
+﻿using Cinnamon_Cinema_Movie_Theatre.Manager;
+namespace Cinnamon_Cinema_Movie_Theatre.UI;
 
 public class SubMenu
 {

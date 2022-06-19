@@ -1,7 +1,6 @@
 ﻿using Cinnamon_Cinema_Movie_Theatre.Manager;
-using Cinnamon_Cinema_Movie_Theatre.Models;
 using Npgsql;
-using Spectre.Console;
+
 namespace Cinnamon_Cinema_Movie_Theatre.UI;
 
 public class UserMenu

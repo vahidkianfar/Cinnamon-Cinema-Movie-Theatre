@@ -1,5 +1,4 @@
-﻿using Cinnamon_Cinema_Movie_Theatre.Models;
-using Spectre.Console;
+﻿using Spectre.Console;
 
 namespace Cinnamon_Cinema_Movie_Theatre.UI;
 
