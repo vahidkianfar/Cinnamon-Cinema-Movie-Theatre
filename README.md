@@ -1,9 +1,12 @@
 # Cinnamon-Cinema-Movie-Theatre
 
-#Initial Approach:
-1. There is one database that stored "Movies", "Seats", "Users"
-2. "BookingManager" class, Handles the User's requests.
-3. Everytime that you start the program, All seatStatuses on the database reset to Free.
+
+1. There is one database that stored "Movies", "Seats", "Users" , "top250_movies"
+2. We scraped IMDb top 250 movies (https://www.imdb.com/chart/top) and stored them into a table, so user can search see the movie's information.
+   such as, Rank, Rate, Director, Casts, and etc.
+3. "BookingManager" class, Handles the User's requests.
+4. Everytime that you start the program, All seatStatuses on the database reset to Free.
+
 
 ### User must login/register first:
 
