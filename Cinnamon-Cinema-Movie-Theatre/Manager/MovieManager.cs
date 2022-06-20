@@ -47,12 +47,13 @@ public class MovieManager:IDatabase
         else
         {
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.Write("Place: " + reader.GetInt32(0));
+            Console.Write("Rank: " + reader.GetInt32(0));
             Console.Write(" - Title: " + reader.GetString(1));
             Console.Write(" - Rate: " + Math.Round(reader.GetDouble(2), 1));
             Console.Write(" - Year: " + reader.GetInt32(3));
-            Console.Write(" - Director & Casts: " + reader.GetString(4));
             Console.WriteLine();
+            Console.Write("Director & Casts: " + reader.GetString(4));
+            //Console.WriteLine();
             Console.ResetColor();
         }
     }
