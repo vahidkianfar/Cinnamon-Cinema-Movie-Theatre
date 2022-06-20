@@ -11,7 +11,7 @@ public class ConsoleHelper
     {
         using var connectionToDatabase = new NpgsqlConnection(IDatabase.ConnectionInitializer);
         const int startX = 35;
-        const int startY = 4;
+        const int startY = 9;
         const int optionsPerLine = 1;
         const int spacingPerLine = 14;
         var currentSelection = 0;
@@ -22,11 +22,14 @@ public class ConsoleHelper
         {
             connectionToDatabase.Open();
             SeatManager.SetConnection(connectionToDatabase);
-            var seatsStatus=SeatManager.GetAvailableSeats();
-            var drawTable = new DrawSeatsTable();
+            var seatsStatusScreen1=SeatManager.GetAvailableSeatsOfScreen1();
+            var seatsStatusScreen2=SeatManager.GetAvailableSeatsOfScreen2();
+            var drawTableScreen1 = new DrawSeatsTable();
+            var drawTableScreen2 = new DrawSeatsTable();
             Console.WriteLine();
             #pragma warning disable CS4014
-            drawTable.LiveTable(seatsStatus);
+            drawTableScreen1.LiveTableScreen1(seatsStatusScreen1);
+            drawTableScreen2.LiveTableScreen2(seatsStatusScreen2);
             #pragma warning restore CS4014
             connectionToDatabase.Close();
             Console.ResetColor();
