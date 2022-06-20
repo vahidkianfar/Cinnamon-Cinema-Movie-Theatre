@@ -20,9 +20,9 @@ for index in range(0, len(movies)):
             "star_cast": crew[index], }
     MovieList.append(data)
 
-for movie in MovieList:
-    print(movie['place'], '-', movie['movie_title'], '(' + movie['year'] +
-          ') -', 'Starring:', movie['star_cast'], movie['rate'])
+# for movie in MovieList:
+#     print(movie['place'], '-', movie['movie_title'], '(' + movie['year'] +
+#           ') -', 'Starring:', movie['star_cast'], movie['rate'])
 
 df = pd.DataFrame(MovieList)
 df.to_csv('imdb_top_250_movies.csv', index=False)

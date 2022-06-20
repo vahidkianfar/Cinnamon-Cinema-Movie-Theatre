@@ -26,11 +26,10 @@ public class SubMenu
             case 1:
                 Console.Write("Enter the title of the movie: ");
                 var searchTitle = Console.ReadLine()!;
-                var connectTo250Movies = new NpgsqlConnection(IDatabase.ConnectionInitializerTo250Movies);
-                connectTo250Movies.Open();
-                MovieManager.SetConnection(connectTo250Movies);
+                connectionToDatabase.Open();
+                MovieManager.SetConnection(connectionToDatabase);
                 MovieManager.SearchMovies(searchTitle);
-                connectTo250Movies.Close();
+                connectionToDatabase.Close();
                 MainMenu.Start(loggedUser);
                 break;
             case 2:

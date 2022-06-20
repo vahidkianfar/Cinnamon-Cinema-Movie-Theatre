@@ -74,7 +74,7 @@ public class Tests
     
     public void MovieManager_Should_Return_Movie_by_Search()
     {
-        using var connectionToDatabase = new NpgsqlConnection(IDatabase.ConnectionInitializerTo250Movies);
+        using var connectionToDatabase = new NpgsqlConnection(IDatabase.ConnectionInitializer);
         connectionToDatabase.Open();
         MovieManager.SetConnection(connectionToDatabase);
         MovieManager.SearchMovies("The Godfather");
