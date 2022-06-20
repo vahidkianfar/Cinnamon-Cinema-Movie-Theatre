@@ -48,12 +48,14 @@ public class UserMenu
             
                             case 1:
                             {
-                                Console.Write("Enter a username: ");
+                                Console.Write("Enter a Username: ");
                                 string usernameRegister = Console.ReadLine()!;
-                                Console.Write("Enter a password: ");
+                                Console.Write("Enter a Password: ");
                                 string passwordRegister = Console.ReadLine()!;
+                                Console.Write("Enter an Email: ");
+                                string emailRegister = Console.ReadLine()!;
                                 UserManager.SetConnection(connectionToDatabase);
-                                var register = UserManager.Register(usernameRegister, passwordRegister);
+                                var register = UserManager.Register(usernameRegister, passwordRegister, emailRegister);
                                 if (register)
                                 {
                                     Console.ForegroundColor = ConsoleColor.Green;

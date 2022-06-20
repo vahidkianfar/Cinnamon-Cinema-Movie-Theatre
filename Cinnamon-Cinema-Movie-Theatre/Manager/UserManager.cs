@@ -30,11 +30,12 @@ public class UserManager
         var reader = cmd.ExecuteReader();
         return reader.Read();
     }
-    public static bool Register(string username, string password)
+    public static bool Register(string username, string password, string email)
     {
-        var cmd = new NpgsqlCommand("INSERT INTO users (username, password) VALUES (@username, @password)", _connection);
+        var cmd = new NpgsqlCommand("INSERT INTO users (username, password, email) VALUES (@username, @password, @email)", _connection);
         cmd.Parameters.AddWithValue("@username", username);
         cmd.Parameters.AddWithValue("@password", password);
+        cmd.Parameters.AddWithValue("@email", email);
         return cmd.ExecuteNonQuery() > 0;
     }
 }
