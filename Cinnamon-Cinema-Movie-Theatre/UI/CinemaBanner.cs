@@ -2,18 +2,19 @@
 
 public class CinemaBanner
 {
-    public const string GoodbyeMessage = @"
+    private const string GoodbyeMessage = @"
                                      |
                           ___________I____________
                          ( _____________________ ()
                        _.-'|                    ||
-                   _.-'   ||      Cinnamon      ||
+                   _.-'   || The First rule of  ||
+               _.-'       ||   Fight Club is:   ||
   ______       _.-'       ||                    ||
- |      |_ _.-'           ||       Cinema       ||
- |      |_|_              ||                    ||
- |______|   `-._          ||       Movie        ||
-    /\          `-._      ||                    ||
-   /  \             `-._  ||      Theatre       ||
+ |      |_ _.-'           ||  You Don't Talk    ||
+ |      |_|_              ||       about        ||
+ |______|   `-._          ||                    ||
+    /\          `-._      ||     Fight Club     ||
+   /  \             `-._  ||                    ||
   /    \                `-.I____________________||
  /      \                 ------------------------
 /________\___________________/________________\______                                                                                                                                               
