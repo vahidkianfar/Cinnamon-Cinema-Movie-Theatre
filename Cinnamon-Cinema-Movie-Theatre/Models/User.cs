@@ -25,3 +25,9 @@ public class User
         UserManager.SetConnection(connectionToDatabase);
     }
 }
+
+
+
+// Check storing a dictionary into a database.
+// Order food and drinks. (added the column, need to add the code)
+// 
