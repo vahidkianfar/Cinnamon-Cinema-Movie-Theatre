@@ -19,13 +19,13 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Content Include="Scraper\IMDbScrapper\.idea\.gitignore" />
-      <Content Include="Scraper\IMDbScrapper\.idea\IMDbScrapper.iml" />
-      <Content Include="Scraper\IMDbScrapper\.idea\inspectionProfiles\profiles_settings.xml" />
-      <Content Include="Scraper\IMDbScrapper\.idea\inspectionProfiles\Project_Default.xml" />
-      <Content Include="Scraper\IMDbScrapper\.idea\misc.xml" />
-      <Content Include="Scraper\IMDbScrapper\.idea\modules.xml" />
-      <Content Include="Scraper\IMDbScrapper\.idea\workspace.xml" />
+      <Content Include="Scraper\IMDbScraper\.idea\.gitignore" />
+      <Content Include="Scraper\IMDbScraper\.idea\IMDbScrapper.iml" />
+      <Content Include="Scraper\IMDbScraper\.idea\inspectionProfiles\profiles_settings.xml" />
+      <Content Include="Scraper\IMDbScraper\.idea\inspectionProfiles\Project_Default.xml" />
+      <Content Include="Scraper\IMDbScraper\.idea\misc.xml" />
+      <Content Include="Scraper\IMDbScraper\.idea\modules.xml" />
+      <Content Include="Scraper\IMDbScraper\.idea\workspace.xml" />
     </ItemGroup>
 
 </Project>

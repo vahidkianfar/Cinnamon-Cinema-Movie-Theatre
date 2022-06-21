@@ -14,8 +14,8 @@ public class SubMenu
         MovieManager.GetMovieDetails();
 
         var selectInstructionOption = ConsoleHelper.MultipleChoice(true,
-            $"1. Screen 1: {MovieManager.MovieDetails![0].Item2}",
-            $"2. Screen 2: {MovieManager.MovieDetails![1].Item2}","3. Search Movie by Title", "4. Back", "5. Exit");
+            $"1. Screen 1: {MovieManager.MovieDetails![0].Item2} [{MovieManager.MovieDetails![0].Item1}]",
+            $"2. Screen 2: {MovieManager.MovieDetails![1].Item2} [{MovieManager.MovieDetails![1].Item1}]","3. Search Movie by Title", "4. Back", "5. Exit");
         connectionToDatabase.Close();
 
         switch (selectInstructionOption)

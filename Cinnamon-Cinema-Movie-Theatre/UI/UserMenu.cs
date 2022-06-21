@@ -24,6 +24,7 @@ public class UserMenu
                                 string username = Console.ReadLine()!;
                                 Console.Write("Enter your password: ");
                                 string password = Console.ReadLine()!;
+                                var loggeduser = new User(username);
                                 UserManager.SetConnection(connectionToDatabase);
                                 var userChecker = UserManager.Login(username, password);
 

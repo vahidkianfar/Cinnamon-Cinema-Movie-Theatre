@@ -57,4 +57,21 @@ public class MovieManager:IDatabase
             Console.ResetColor();
         }
     }
+    
+    public static bool AddMovie(string title, string genre, string director)
+    {
+        var command = new NpgsqlCommand("INSERT INTO movies (genre, title, director) VALUES (@genre, @title, @director)", _connection);
+        command.Parameters.AddWithValue("@genre", genre);
+        command.Parameters.AddWithValue("@title", title);
+        command.Parameters.AddWithValue("@director", director);
+        return command.ExecuteNonQuery() > 0;
+    }
+
+    public static void DeleteMovie(string title)
+    {
+        var command = new NpgsqlCommand("DELETE FROM movies WHERE title=@title", _connection);
+        command.Parameters.AddWithValue("@title", title);
+        command.ExecuteNonQuery();
+    }
+    
 }

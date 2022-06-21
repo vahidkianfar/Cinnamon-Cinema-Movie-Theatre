@@ -26,7 +26,7 @@ public class SeatManager:IDatabase
     public static List<Tuple<string, int,int>> GetAvailableSeatsOfScreen1()
     {
          using var command = new NpgsqlCommand(
-            "SELECT rowblock, columnnumber, status FROM seats ORDER BY rowblock, columnnumber",
+            "SELECT rowblock, columnnumber, status FROM screen_1 ORDER BY rowblock, columnnumber",
              _connection);
          {
             using var reader =  command.ExecuteReader();
@@ -59,7 +59,7 @@ public class SeatManager:IDatabase
     public static void UpdateSeatStatusForScreen1(char selectedRow, int selectedCols,int newStatus)
     {
         using var command = new NpgsqlCommand(
-             $"UPDATE seats SET status = '{newStatus}' " +
+             $"UPDATE screen_1 SET status = '{newStatus}' " +
              $"WHERE rowblock='{selectedRow}' AND columnnumber='{selectedCols}' ",  _connection);
         {
             command.Parameters.AddWithValue(@"status", newStatus);

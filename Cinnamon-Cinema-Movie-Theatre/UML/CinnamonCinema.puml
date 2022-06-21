@@ -20,18 +20,34 @@ class UserManager
 + UpdateUserDetails()
 }
 
-class BookingManager()
+class BookingManager
 {
 + PlaceOrder()
 + UpdateMovies()
 + UpdateSeatStatus()
 }
 
+ MovieManager <-->  BookingManager
+UserManager <--> BookingManager
+SeatManager <--> BookingManager
+
+class Movie
+{
+ -ID
+ +Title
+ +Genre
+ +ReleaseDate
+ +Director
+}
+class Seat
+class user
+
 class ConsoleHelper
 class DrawSeatsTable
 
 class MainMenu
 class SubMenu
+class UserMenu
 
 
 @enduml
