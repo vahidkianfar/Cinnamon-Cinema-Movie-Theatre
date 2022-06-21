@@ -17,25 +17,27 @@ public class ConsoleHelperForAdmin
                 while(!ctx.IsFinished)
                     task1.Increment(0.00004);
             });
+        
 
-        const int startX = 45;
+        const int startX = 47;
         const int startY = 3;
         const int optionsPerLine = 1;
         const int spacingPerLine = 14;
         var currentSelection = 0;
         Console.CursorVisible = false;
         ConsoleKey key;
-
+        
         do 
         {
-            AnsiConsole.Write(new Calendar(DateTime.Now).RoundedBorder()
-                .Culture(CultureInfo.InvariantCulture));
+            Console.WriteLine();
+            AnsiConsole.Write(new Calendar(DateTime.Now).AddCalendarEvent(DateTime.Today).BorderColor(Color.DarkOliveGreen2));
             for (var optionCounter = 0; optionCounter < options.Length; optionCounter++)
             {
+                
                 Console.CursorVisible = false;
                 Console.SetCursorPosition(startX + (optionCounter % optionsPerLine) * spacingPerLine, startY + optionCounter / optionsPerLine);
                 if (optionCounter == currentSelection)
-                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                    Console.ForegroundColor = ConsoleColor.Blue;
                 Console.Write(options[optionCounter]);
                 Console.ResetColor();
             }
