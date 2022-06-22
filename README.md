@@ -4,7 +4,7 @@
 
 for the fist run just uncomment "DatabaseManager.CreateDatabase();" in Program.cs and then run the following line within your terminal:
 
-<font color="red">"pg_restore -h localhost -p 5432 -U postgres -c -d cinnamoncinemas CinnamonCinemaBackup"</font>
+***pg_restore -h localhost -p 5432 -U postgres -c -d cinnamoncinemas CinnamonCinemaBackup**
 
 ### Details:
 1. There is one database that stored "Movies", "Screens", "Users" , "top250_movies"
