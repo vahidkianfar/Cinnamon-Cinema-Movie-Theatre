@@ -33,7 +33,7 @@ public class SubMenu
                 MovieManager.SetConnection(connectionToDatabase);
                 MovieManager.SearchMovies(searchTitle);
                 connectionToDatabase.Close();
-                MainMenu.Start(loggedUser);
+                ShowMoviesMenu(loggedUser);
                 break;
             case 3:
                 MainMenu.Start(loggedUser);

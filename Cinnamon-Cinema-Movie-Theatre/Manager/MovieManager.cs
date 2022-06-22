@@ -60,18 +60,48 @@ public class MovieManager:IDatabase
     
     public static bool AddMovie(string title, string genre, string director)
     {
-        var command = new NpgsqlCommand("INSERT INTO movies (genre, title, director) VALUES (@genre, @title, @director)", _connection);
-        command.Parameters.AddWithValue("@genre", genre);
-        command.Parameters.AddWithValue("@title", title);
-        command.Parameters.AddWithValue("@director", director);
-        return command.ExecuteNonQuery() > 0;
+        using var command = new NpgsqlCommand("INSERT INTO movies (genre, title, director) VALUES (@genre, @title, @director)", _connection);
+        {
+            command.Parameters.AddWithValue("@genre", genre);
+            command.Parameters.AddWithValue("@title", title);
+            command.Parameters.AddWithValue("@director", director);
+            return command.ExecuteNonQuery() > 0;
+        }
     }
 
-    public static void DeleteMovie(string title)
+    public static bool DeleteMovie(string title)
     {
-        var command = new NpgsqlCommand("DELETE FROM movies WHERE title=@title", _connection);
-        command.Parameters.AddWithValue("@title", title);
-        command.ExecuteNonQuery();
+        using var command = new NpgsqlCommand("DELETE FROM movies WHERE title=@title", _connection);
+        {
+            command.Parameters.AddWithValue("@title", title);
+            return command.ExecuteNonQuery() > 0;
+        }
+        
+    }
+    public static bool UpdateMovie(string inputTitle, string inputGenre, string inputDirector)
+    {
+        using var command = new NpgsqlCommand(
+            $"UPDATE movies SET genre = '{inputGenre}', director = '{inputDirector}' " +
+            $"WHERE title='{inputTitle}' ",  _connection);
+        {
+            command.Parameters.AddWithValue(@"title", inputTitle);
+            command.Parameters.AddWithValue(@"genre", inputGenre);
+            command.Parameters.AddWithValue(@"director", inputDirector);
+            return command.ExecuteNonQuery()>0;
+        }
+        
+    }
+    public static List<Tuple<string,string,string>> GetMovieList()
+    {
+        var command = new NpgsqlCommand("SELECT genre, title, director FROM movies", _connection);
+        
+        using var reader = command.ExecuteReader();
+            
+        var movieList = new List<Tuple<string, string, string>>();
+        while (reader.Read())
+            movieList.Add(new Tuple<string, string, string>(reader.GetString(0), reader.GetString(1),
+                reader.GetString(2)));
+        return movieList;
     }
     
 }

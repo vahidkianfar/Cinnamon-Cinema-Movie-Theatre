@@ -15,7 +15,7 @@ public class UserMenu
                         //Console.Clear();
                         using var connectionToDatabase = new NpgsqlConnection(IDatabase.ConnectionInitializer);
                         connectionToDatabase.Open();
-                        var selectInstructionOption = ConsoleHelper.MultipleChoice(true, "1. Login", "2. Register", "3. Exit");
+                        var selectInstructionOption = ConsoleHelper.MultipleChoiceForStartingMenu(true, "1. Login", "2. Register", "3. Exit");
                         switch (selectInstructionOption)
                         {
                             case 0:

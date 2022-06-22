@@ -1,5 +1,6 @@
 ﻿using Cinnamon_Cinema_Movie_Theatre.Manager;
 using Npgsql;
+using Spectre.Console;
 
 namespace Cinnamon_Cinema_Movie_Theatre.UI;
 
@@ -39,6 +40,141 @@ public class ConsoleHelper
                 Console.SetCursorPosition(startX + (optionCounter % optionsPerLine) * spacingPerLine, startY + optionCounter / optionsPerLine);
                 if (optionCounter == currentSelection)
                     Console.ForegroundColor = ConsoleColor.DarkCyan;
+                Console.Write(options[optionCounter]);
+                Console.ResetColor();
+            }
+            key = Console.ReadKey(true).Key;
+            switch (key)
+            {
+                case ConsoleKey.LeftArrow:
+                {
+                    if (currentSelection % optionsPerLine > 0)
+                        currentSelection--;
+                    break;
+                }
+                case ConsoleKey.RightArrow:
+                {
+                    if (currentSelection % optionsPerLine < optionsPerLine - 1)
+                        currentSelection++;
+                    break;
+                }
+                case ConsoleKey.UpArrow:
+                {
+                    if (currentSelection >= optionsPerLine)
+                        currentSelection -= optionsPerLine;
+                    break;
+                }
+                case ConsoleKey.DownArrow:
+                {
+                    if (currentSelection + optionsPerLine < options.Length)
+                        currentSelection += optionsPerLine;
+                    break;
+                }
+                case ConsoleKey.Escape:
+                {
+                    if (canCancel)
+                        return -1;
+                    break;
+                }
+            }
+            Console.Clear();
+        } while (key != ConsoleKey.Enter);
+        Console.CursorVisible = true;
+        return currentSelection;
+    }
+    public static int MultipleChoiceForStartingMenu(bool canCancel, params string[] options)
+    {
+        const int startX = 33;
+        const int startY = 7;
+        const int optionsPerLine = 1;
+        const int spacingPerLine = 14;
+        var currentSelection = 0;
+        Console.CursorVisible = false;
+        ConsoleKey key;
+
+        do 
+        {
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine(CinemaBanner.StartLogo);
+            Console.ResetColor();
+            for (var optionCounter = 0; optionCounter < options.Length; optionCounter++)
+            {
+                Console.CursorVisible = false;
+                Console.SetCursorPosition(startX + (optionCounter % optionsPerLine) * spacingPerLine, startY + optionCounter / optionsPerLine);
+                if (optionCounter == currentSelection)
+                    Console.ForegroundColor = ConsoleColor.DarkCyan;
+                Console.Write(options[optionCounter]);
+                Console.ResetColor();
+            }
+            key = Console.ReadKey(true).Key;
+            switch (key)
+            {
+                case ConsoleKey.LeftArrow:
+                {
+                    if (currentSelection % optionsPerLine > 0)
+                        currentSelection--;
+                    break;
+                }
+                case ConsoleKey.RightArrow:
+                {
+                    if (currentSelection % optionsPerLine < optionsPerLine - 1)
+                        currentSelection++;
+                    break;
+                }
+                case ConsoleKey.UpArrow:
+                {
+                    if (currentSelection >= optionsPerLine)
+                        currentSelection -= optionsPerLine;
+                    break;
+                }
+                case ConsoleKey.DownArrow:
+                {
+                    if (currentSelection + optionsPerLine < options.Length)
+                        currentSelection += optionsPerLine;
+                    break;
+                }
+                case ConsoleKey.Escape:
+                {
+                    if (canCancel)
+                        return -1;
+                    break;
+                }
+            }
+            Console.Clear();
+        } while (key != ConsoleKey.Enter);
+        Console.CursorVisible = true;
+        return currentSelection;
+    }
+    public static int MultipleChoiceForAdmin(bool canCancel, params string[] options)
+    {
+        // AnsiConsole.Progress()
+        //     .Start(ctx => 
+        //     {
+        //         var task1 = ctx.AddTask("[green]Loading Database[/]");
+        //         while(!ctx.IsFinished)
+        //             task1.Increment(0.00004);
+        //     });
+        
+
+        const int startX = 47;
+        const int startY = 3;
+        const int optionsPerLine = 1;
+        const int spacingPerLine = 14;
+        var currentSelection = 0;
+        Console.CursorVisible = false;
+        ConsoleKey key;
+        
+        do 
+        {
+            Console.WriteLine();
+            AnsiConsole.Write(new Calendar(DateTime.Now).AddCalendarEvent(DateTime.Today).BorderColor(Color.DarkOliveGreen2));
+            for (var optionCounter = 0; optionCounter < options.Length; optionCounter++)
+            {
+                
+                Console.CursorVisible = false;
+                Console.SetCursorPosition(startX + (optionCounter % optionsPerLine) * spacingPerLine, startY + optionCounter / optionsPerLine);
+                if (optionCounter == currentSelection)
+                    Console.ForegroundColor = ConsoleColor.Blue;
                 Console.Write(options[optionCounter]);
                 Console.ResetColor();
             }

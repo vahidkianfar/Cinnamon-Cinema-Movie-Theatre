@@ -13,13 +13,16 @@ public class AdminMenu
             {
                 using var connectionToDatabase = new NpgsqlConnection(IDatabase.ConnectionInitializer);
                 connectionToDatabase.Open();
-                var selectInstructionOption = ConsoleHelperForAdmin.MultipleChoiceForAdmin(true,
+                var selectInstructionOption = ConsoleHelper.MultipleChoiceForAdmin(true,
                     "1. Add Movie",
                     "2. Delete Movie",
                     "3. Update Movie",
-                    "4. Add Screen",
-                    "5. Delete Screen",
-                    "6. Update Screen"
+                    "4. Get All Available Movies",
+                    "5. Add Screen",
+                    "6. Delete Screen",
+                    "7. Update Screen",
+                    "8. Logout",
+                    "9. Exit"
                 );
 
                 switch (selectInstructionOption)
@@ -34,9 +37,56 @@ public class AdminMenu
                         var movieDirector = Console.ReadLine()!;
                         MovieManager.SetConnection(connectionToDatabase);
                         var checkAddMovie = MovieManager.AddMovie(movieTitle, movieGenre, movieDirector);
+                        Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine(checkAddMovie ? "Movie added successfully!" : "Movie already exists!");
+                        Console.ResetColor();
                         break;
                     }
+                    
+                    case 1:
+                        MovieManager.SetConnection(connectionToDatabase);
+                        Console.Write("Enter Title: ");
+                        var deleteTitle = Console.ReadLine()!;
+                        var checkDeleteMovie = MovieManager.DeleteMovie(deleteTitle);
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine(checkDeleteMovie ? "Movie Deleted successfully!" : "Movie does not exist!");
+                        Console.ResetColor();
+                        break;
+
+                    case 3:
+                    {
+                        MovieManager.SetConnection(connectionToDatabase);
+                        var movieList = MovieManager.GetMovieList();
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        foreach (var item in movieList)
+                        {
+                            Console.ResetColor();
+                            Console.Write("Title: ");
+                            Console.ForegroundColor = ConsoleColor.DarkRed;
+                            Console.Write(item.Item2);
+                            Console.ResetColor();
+                            Console.Write(" - Genre: ");
+                            Console.ForegroundColor = ConsoleColor.DarkRed;
+                            Console.Write(item.Item1);
+                            Console.ResetColor();
+                            Console.Write(" - Director: ");
+                            Console.ForegroundColor = ConsoleColor.DarkRed;
+                            Console.Write(item.Item3);
+                            Console.WriteLine();
+                            
+                        }
+                        Console.ResetColor();
+
+                        break;
+                    }
+                    
+                    case 7:
+                        UserMenu.Start();
+                        break;
+                    case 8:
+                        CinemaBanner.PrintBanner();
+                        Environment.Exit(0);
+                        break;
                 }
             }
         }
