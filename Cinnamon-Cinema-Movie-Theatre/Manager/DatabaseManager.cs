@@ -10,13 +10,13 @@ public class DatabaseManager
         try
         {
             // Create the database if it doesn't exist
-            string connStr = "Server=localhost;Port=5432;User Id=postgres;Password=johnybravo;";
-            var m_conn = new NpgsqlConnection(connStr);
-            var m_createdb_cmd = new NpgsqlCommand(@"CREATE DATABASE cinnamoncinemasnew", m_conn);
+            const string connectionString = "Server=localhost;Port=5432;User Id=postgres;Password=johnybravo;";
+            var pgConnection = new NpgsqlConnection(connectionString);
+            var createNewDB = new NpgsqlCommand(@"CREATE DATABASE cinnamoncinemas", pgConnection);
             
-            m_conn.Open();
-            m_createdb_cmd.ExecuteNonQuery();
-            m_conn.Close();
+            pgConnection.Open();
+            createNewDB.ExecuteNonQuery();
+            pgConnection.Close();
         }
         
 

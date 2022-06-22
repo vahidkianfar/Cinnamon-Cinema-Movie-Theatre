@@ -14,22 +14,14 @@ public class Tests
     [Test]
     public void Database_Connection_Should_Be_Open()
     {
-        const string ConnectionInitializer = "Host=localhost;" +
-                                             "Username=postgres;" +
-                                             "Password=johnybravo;" +
-                                             "Database=CinnamonCinemas";
-        var connection = new NpgsqlConnection(ConnectionInitializer);
+        var connection = new NpgsqlConnection(IDatabase.ConnectionInitializer);
         connection.Open();
         Assert.That(connection.State, Is.EqualTo(System.Data.ConnectionState.Open));
     }
     [Test]
     public void Database_Connection_Should_Be_Close()
     {
-        const string ConnectionInitializer = "Host=localhost;" +
-                                             "Username=postgres;" +
-                                             "Password=johnybravo;" +
-                                             "Database=CinnamonCinemas";
-        var connection = new NpgsqlConnection(ConnectionInitializer);
+        var connection = new NpgsqlConnection(IDatabase.ConnectionInitializer);
         connection.Open();
         connection.Close();
         Assert.That(connection.State, Is.EqualTo(System.Data.ConnectionState.Closed));
@@ -38,15 +30,12 @@ public class Tests
     [Test]
     public void UserManager_Should_Be_Able_To_Create_A_User_And_Retrieve_It()
     {
-        const string ConnectionInitializer = "Host=localhost;" +
-                                             "Username=postgres;" +
-                                             "Password=johnybravo;" +
-                                             "Database=CinnamonCinemas";
-        var connection = new NpgsqlConnection(ConnectionInitializer);
+     
+        var connection = new NpgsqlConnection(IDatabase.ConnectionInitializer);
         connection.Open();
         UserManager.SetConnection(connection);
         var testUsername = "John";
-        var password = "12345";
+        //var password = "12345";
         
         // Because usernames are unique, we need to create a new username to test with
         //var register = UserManager.Register(username, password);

@@ -11,7 +11,7 @@ public interface IDatabase
 const string ConnectionInitializer = "Host=localhost;" +
                                      "Username=postgres;" +
                                      "Password=johnybravo;" +
-                                     "Database=cinnamoncinemasnew";
+                                     "Database=cinnamoncinemas";
 public partial class Connection
 {
     public static NpgsqlConnection GetConnection()

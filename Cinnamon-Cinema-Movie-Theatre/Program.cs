@@ -7,7 +7,7 @@ using Cinnamon_Cinema_Movie_Theatre.UI;
 
 //******and then run the below run within your terminal:
 
-//pg_restore -h localhost -p 5432 -U postgres -c -d cinnamoncinemas CinnamonCinemaBackup
+// "pg_restore -h localhost -p 5432 -U postgres -c -d cinnamoncinemas CinnamonCinemasBackup"
 
 
 BookingManager.ResetSeats();

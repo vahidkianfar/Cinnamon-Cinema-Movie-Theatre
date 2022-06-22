@@ -9,8 +9,8 @@ public class User
     public string UserName { get; set; }
     private string Password { get; set; }
     public string? Email { get; set; }
-    public List<Movie> Movies { get; set; }
-    public List<Seat> Seats { get; set; }
+    private List<Movie> Movies { get; set; }
+    private List<Seat> Seats { get; set; }
     
     public User( string userName)
     {
@@ -25,9 +25,3 @@ public class User
         UserManager.SetConnection(connectionToDatabase);
     }
 }
-
-
-
-// Check storing a dictionary into a database.
-// Order food and drinks. (added the column, need to add the code)
-// 

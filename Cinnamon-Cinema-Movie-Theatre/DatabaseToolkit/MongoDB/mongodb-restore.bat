@@ -1,1 +1,0 @@
-mongorestore --drop --gzip --archive=%1
