@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+    <appSettings>
+        <add key="DBHost" value="localhost" />
+        <add key="DBusername" value="postgres" />
+        <add key="DBPassword" value="johnybravo" />
+        <add key="DBName" value="CinnamonCinemas" />
+    </appSettings>
+</configuration>

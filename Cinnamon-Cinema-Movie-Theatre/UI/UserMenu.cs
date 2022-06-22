@@ -1,4 +1,5 @@
-﻿using Cinnamon_Cinema_Movie_Theatre.Manager;
+﻿using System.Configuration;
+using Cinnamon_Cinema_Movie_Theatre.Manager;
 using Cinnamon_Cinema_Movie_Theatre.Models;
 using Npgsql;
 
@@ -13,7 +14,7 @@ public class UserMenu
             while (true)
             {
                         //Console.Clear();
-                        using var connectionToDatabase = new NpgsqlConnection(IDatabase.ConnectionInitializer);
+                        using var connectionToDatabase = IDatabase.Connection.GetConnection();
                         connectionToDatabase.Open();
                         var selectInstructionOption = ConsoleHelper.MultipleChoiceForStartingMenu(true, "1. Login", "2. Register", "3. Exit");
                         switch (selectInstructionOption)

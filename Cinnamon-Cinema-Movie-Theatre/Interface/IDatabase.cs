@@ -1,20 +1,17 @@
 ﻿using Npgsql;
+using System.Collections.Specialized;
+using System.Configuration;
 
 namespace Cinnamon_Cinema_Movie_Theatre;
 
 public interface IDatabase
 {
+    
 
 const string ConnectionInitializer = "Host=localhost;" +
                                      "Username=postgres;" +
                                      "Password=johnybravo;" +
                                      "Database=CinnamonCinemas";
-
-
-const string ConnectionInitializerTo250Movies = "Host=localhost;" +
-                                     "Username=postgres;" +
-                                     "Password=johnybravo;" +
-                                     "Database=postgres";
 public partial class Connection
 {
     public static NpgsqlConnection GetConnection()
@@ -22,5 +19,4 @@ public partial class Connection
         return new NpgsqlConnection(ConnectionInitializer);
     }
 }
-
 }

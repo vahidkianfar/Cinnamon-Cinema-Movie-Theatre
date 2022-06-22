@@ -94,7 +94,7 @@ public class ConsoleHelper
 
         do 
         {
-            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine(CinemaBanner.StartLogo);
             Console.ResetColor();
             for (var optionCounter = 0; optionCounter < options.Length; optionCounter++)
