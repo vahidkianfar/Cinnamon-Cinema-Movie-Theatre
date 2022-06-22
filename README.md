@@ -1,7 +1,8 @@
 # Cinnamon-Cinema-Movie-Theatre
 
 ### NOTE:
-## for the fist run just uncomment "DatabaseManager.CreateDatabase();" in Program.cs and then run the following line within your terminal:
+
+for the fist run just uncomment "DatabaseManager.CreateDatabase();" in Program.cs and then run the following line within your terminal:
 
 "pg_restore -h localhost -p 5432 -U postgres -c -d cinnamoncinemas CinnamonCinemaBackup"
 
