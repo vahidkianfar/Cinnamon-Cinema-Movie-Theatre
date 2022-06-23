@@ -12,7 +12,7 @@ for the fist run just uncomment **DatabaseManager.CreateDatabase();** in Program
 
 ![](https://github.com/vahidkianfar/Cinnamon-Cinema-Movie-Theatre/blob/master/Cinnamon-Cinema-Movie-Theatre/Gif/TwoScreen.gif)
 
-3. Admin has many privilege to Add/Update/Delete Movies, Screens and etc:
+3. Admin has many privileges to Add/Update/Delete Movies, Screens and etc:
 
 ![](https://github.com/vahidkianfar/Cinnamon-Cinema-Movie-Theatre/blob/master/Cinnamon-Cinema-Movie-Theatre/Gif/AdminMenu.gif)
 
