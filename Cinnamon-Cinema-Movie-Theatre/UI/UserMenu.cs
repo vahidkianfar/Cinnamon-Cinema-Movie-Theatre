@@ -2,6 +2,7 @@
 using Cinnamon_Cinema_Movie_Theatre.Manager;
 using Cinnamon_Cinema_Movie_Theatre.Models;
 using Npgsql;
+using Spectre.Console;
 
 namespace Cinnamon_Cinema_Movie_Theatre.UI;
 
@@ -23,8 +24,9 @@ public class UserMenu
                             {
                                 Console.Write("Enter your username: ");
                                 string username = Console.ReadLine()!;
-                                Console.Write("Enter your password: ");
-                                string password = Console.ReadLine()!;
+                                //Console.Write("Enter your password: ");
+                                //string password = Console.ReadLine()!;
+                                string password=AnsiConsole.Prompt(new TextPrompt<string>("Enter [green]password[/]?").PromptStyle("red").Secret());
                                 var loggeduser = new User(username);
                                 UserManager.SetConnection(connectionToDatabase);
                                 var userChecker = UserManager.Login(username, password);
