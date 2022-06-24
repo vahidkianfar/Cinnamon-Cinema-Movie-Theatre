@@ -26,7 +26,7 @@ public class UserMenu
                                 string username = Console.ReadLine()!;
                                 //Console.Write("Enter your password: ");
                                 //string password = Console.ReadLine()!;
-                                string password=AnsiConsole.Prompt(new TextPrompt<string>("Enter [green]password[/]?").PromptStyle("red").Secret());
+                                string password=AnsiConsole.Prompt(new TextPrompt<string>("Enter [green]password[/]: ").PromptStyle("red").Secret());
                                 var loggeduser = new User(username);
                                 UserManager.SetConnection(connectionToDatabase);
                                 var userChecker = UserManager.Login(username, password);
