@@ -18,11 +18,8 @@ public class AdminMenu
                     "2. Delete Movie",
                     "3. Update Movie",
                     "4. Get All Available Movies",
-                    "5. Add Screen",
-                    "6. Delete Screen",
-                    "7. Update Screen",
-                    "8. Logout",
-                    "9. Exit"
+                    "5. Logout",
+                    "6. Exit"
                 );
 
                 switch (selectInstructionOption)
@@ -80,10 +77,10 @@ public class AdminMenu
                         break;
                     }
                     
-                    case 7:
+                    case 4:
                         UserMenu.Start();
                         break;
-                    case 8:
+                    case 5:
                         CinemaBanner.PrintBanner();
                         Environment.Exit(0);
                         break;
