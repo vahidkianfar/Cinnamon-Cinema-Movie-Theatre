@@ -10,7 +10,7 @@ for the fist run just uncomment **DatabaseManager.CreateDatabase();** in Program
 1. There is one database that stores "Movies", "Screens", "Users" , "top250_movies"
 2. The Cinnema has two screens, each screen shows different movie (user can book separately):
 
-![](https://github.com/vahidkianfar/Cinnamon-Cinema-Movie-Theatre/blob/master/Cinnamon-Cinema-Movie-Theatre/Gif/TwoScreen-VS.gif)
+![](https://github.com/vahidkianfar/Cinnamon-Cinema-Movie-Theatre/blob/master/Cinnamon-Cinema-Movie-Theatre/Gif/TwoScreens.gif)
 
 3. Admin has many privileges to Add/Update/Delete Movies, Screens and etc:
 
