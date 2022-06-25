@@ -3,7 +3,9 @@
 ### NOTE:
 
 1.**You Need PostgreSQL on your machine**
+
 2. Binary Backup of the Database is in the root folder of the project: **CinnamonCinemasBackup**
+
 3.for the fist run just uncomment **DatabaseManager.CreateDatabase();** in Program.cs and then run the following line within your terminal:
 
 * **pg_restore -h localhost -p 5432 -U postgres -c -d cinnamoncinemas CinnamonCinemaBackup**
