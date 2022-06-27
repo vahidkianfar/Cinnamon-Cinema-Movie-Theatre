@@ -20,7 +20,7 @@
 
 ![](https://github.com/vahidkianfar/Cinnamon-Cinema-Movie-Theatre/blob/master/Cinnamon-Cinema-Movie-Theatre/Gif/AdminMenu.gif)
 
-4. I scraped IMDb top 250 movies (https://www.imdb.com/chart/top) and stored them into a table, so user can search and see the movie's information.
+4. We scraped IMDb top 250 movies (https://www.imdb.com/chart/top) and stored them into a table, so user can search and see the movie's information.
    such as, Rank, Rate, Director, Casts, and etc.
    
 ![](https://github.com/vahidkianfar/Cinnamon-Cinema-Movie-Theatre/blob/master/Cinnamon-Cinema-Movie-Theatre/Gif/IMDb250Top.gif)
